@@ -1,26 +1,46 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* ── Brand Greens ── */
+  --color-green-deep:   #2D5A00;
+  --color-green:        #3D7A00;
+  --color-green-mid:    #52A000;
+  --color-green-bright: #68AF25;
+  --color-green-pale:   #EBF5D9;
+  --color-green-ghost:  #F4FAE8;
+
+  /* ── Ink Scale (warm blacks) ── */
+  --color-ink:          #141410;
+  --color-ink-2:        #3A3A34;
+  --color-ink-3:        #6A6A60;
+  --color-ink-4:        #9A9A90;
+
+  /* ── Surface Scale (warm whites) ── */
+  --color-surface:      #FAFAF7;
+  --color-surface-2:    #F2F2ED;
+  --color-surface-3:    #E8E8E2;
+  --color-border:       #DEDED6;
+  --color-border-soft:  #EEEEE8;
+
+  /* ── Fonts ── */
+  --font-body:    var(--font-jakarta);
+
+  /* ── Radii ── */
+  --radius-2xl: 1.5rem;
+  --radius-xl:  1rem;
+  --radius-md:  0.625rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* scroll-behavior é definido via data-scroll-behavior="smooth" no <html> em layout.tsx */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-jakarta, "Plus Jakarta Sans"), sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
