@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Plus_Jakarta_Sans, Fraunces, JetBrains_Mono, Archivo, Hanken_Grotesk } from "next/font/google";
+import { Space_Grotesk, Plus_Jakarta_Sans, Fraunces, JetBrains_Mono, Archivo, Hanken_Grotesk, Poppins, Montserrat } from "next/font/google";
 import NavigationErrorSuppressor from "@/components/NavigationErrorSuppressor";
 import "./globals.css";
 
@@ -46,6 +46,20 @@ const hanken = Hanken_Grotesk({
   display: "swap",
 });
 
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "ME Energia Solar",
   description:
@@ -61,7 +75,7 @@ export default function RootLayout({
     <html
       lang="pt-BR"
       data-scroll-behavior="smooth"
-      className={`${spaceGrotesk.variable} ${jakarta.variable} ${fraunces.variable} ${mono.variable} ${archivo.variable} ${hanken.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${jakarta.variable} ${fraunces.variable} ${mono.variable} ${archivo.variable} ${hanken.variable} ${poppins.variable} ${montserrat.variable} h-full antialiased`}
     >
       <body className="min-h-full" suppressHydrationWarning>
         <NavigationErrorSuppressor />
