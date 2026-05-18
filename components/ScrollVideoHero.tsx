@@ -1,4 +1,4 @@
-"use client";
+use client";
 
 import { useRef, useState, useCallback, useEffect } from "react";
 import Link from "next/link";
@@ -9,19 +9,19 @@ import SimulationModal from "./SimulationModal";
 const cards = [
   {
     image: "/card/sol-pilha-verde.png",
-    text: "Economize em até 95% na sua conta de energia.",
+    text: "Economize em atÃ© 95% na sua conta de energia.",
   },
   {
     image: "/card/tomada.card.png",
-    text: "Tenha liberdade e independência energética.",
+    text: "Tenha liberdade e independÃªncia energÃ©tica.",
   },
   {
     image: "/card/casa-planta-verde.png",
-    text: "Valorize seu imóvel, tornando-o sustentável.",
+    text: "Valorize seu imÃ³vel, tornando-o sustentÃ¡vel.",
   },
   {
     image: "/card/painel-solar-verde.png",
-    text: "Tecnologia WEG com até 25 anos de garantia.",
+    text: "Tecnologia WEG com atÃ© 25 anos de garantia.",
   },
 ];
 
@@ -41,12 +41,12 @@ export default function ScrollVideoHero() {
 
   const contentY = useTransform(scrollYProgress, [0.75, 0.9], [40, 0]);
 
-  // frase de impacto inicial — desaparece quando o usuário começa a rolar
+  // frase de impacto inicial â€” desaparece quando o usuÃ¡rio comeÃ§a a rolar
   const introOpacity = useTransform(scrollYProgress, [0, 0.06], [1, 0]);
   const introY = useTransform(scrollYProgress, [0, 0.06], [0, -30]);
   const introScale = useTransform(scrollYProgress, [0, 0.06], [1, 0.95]);
 
-  // filtro do vídeo — blur no início (frase visível) e no final (conteúdo)
+  // filtro do vÃ­deo â€” blur no inÃ­cio (frase visÃ­vel) e no final (conteÃºdo)
   const videoFilter = useTransform(scrollYProgress, (p) => {
     if (p < 0.08) {
       const t = p / 0.08;
@@ -104,11 +104,11 @@ export default function ScrollVideoHero() {
       ref={sectionRef}
       id="home"
       className="relative"
-      style={{ height: "300vh", background: "#0A1A08" }}
+      style={{ height: "300vh", background: "#0A1F38" }}
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
 
-        {/* Vídeo — blur no início (frase) e no final (conteúdo) */}
+        {/* VÃ­deo â€” blur no inÃ­cio (frase) e no final (conteÃºdo) */}
         <motion.video
           ref={videoRef}
           className="absolute inset-0 h-full w-full object-cover"
@@ -123,13 +123,13 @@ export default function ScrollVideoHero() {
           aria-hidden="true"
         />
 
-        {/* Frase de impacto — visível no time 0 do vídeo */}
+        {/* Frase de impacto â€” visÃ­vel no time 0 do vÃ­deo */}
         {showIntro && (
         <motion.div
           className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-6 pointer-events-none"
           style={{ opacity: introOpacity, y: introY, scale: introScale }}
         >
-          {/* Logo watermark atrás do texto */}
+          {/* Logo watermark atrÃ¡s do texto */}
           <div
             className="absolute inset-0 flex items-center justify-center pointer-events-none"
             style={{ zIndex: -1 }}
@@ -159,7 +159,7 @@ export default function ScrollVideoHero() {
                 fontWeight: 500,
               }}
             >
-              ME · Energia Solar
+              ME Â· Energia Solar
             </span>
             <div className="h-px w-12" style={{ background: "rgba(255,255,255,0.45)" }} />
             <span
@@ -175,7 +175,7 @@ export default function ScrollVideoHero() {
             </span>
           </div>
 
-          {/* Headline — direta, peso máximo */}
+          {/* Headline â€” direta, peso mÃ¡ximo */}
           <h2
             className="mb-6"
             style={{
@@ -189,11 +189,11 @@ export default function ScrollVideoHero() {
               textTransform: "uppercase",
             }}
           >
-            O sol é{" "}
+            O sol Ã©{" "}
             <span
               style={{
-                background: "#A8D84E",
-                color: "#0A1A08",
+                background: "#6FB8EE",
+                color: "#0A1F38",
                 padding: "0 0.25em",
                 display: "inline-block",
                 lineHeight: 1,
@@ -217,12 +217,12 @@ export default function ScrollVideoHero() {
               letterSpacing: "0",
             }}
           >
-            Transforme cada raio em independência energética.
+            Transforme cada raio em independÃªncia energÃ©tica.
           </p>
         </motion.div>
         )}
 
-        {/* Badge WEG + indicador de scroll — direita centro vertical (oculto no mobile) */}
+        {/* Badge WEG + indicador de scroll â€” direita centro vertical (oculto no mobile) */}
         <div
           className="hidden lg:flex absolute right-10 top-1/2 -translate-y-1/2 z-20 flex-col items-center gap-5 transition-opacity duration-700"
           style={{ opacity: showContent ? 0 : 1, pointerEvents: showContent ? "none" : "auto" }}
@@ -264,7 +264,7 @@ export default function ScrollVideoHero() {
             style={{ background: "rgba(255,255,255,0.30)" }}
           />
 
-          {/* Indicador scroll — Archivo bold */}
+          {/* Indicador scroll â€” Archivo bold */}
           <div className="flex flex-col items-center gap-3">
             <span
               className="whitespace-nowrap"
@@ -285,7 +285,7 @@ export default function ScrollVideoHero() {
               fill="none"
               className="w-5 h-5 animate-bounce"
               style={{
-                color: "#A8D84E",
+                color: "#6FB8EE",
                 filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.4))",
               }}
             >
@@ -300,7 +300,7 @@ export default function ScrollVideoHero() {
           </div>
         </div>
 
-        {/* Overlay escuro — reforça o foco no texto */}
+        {/* Overlay escuro â€” reforÃ§a o foco no texto */}
         <div
           className="absolute inset-0 transition-opacity duration-700"
           style={{
@@ -316,7 +316,7 @@ export default function ScrollVideoHero() {
           }}
         />
 
-        {/* Conteúdo — texto, CTAs, cards */}
+        {/* ConteÃºdo â€” texto, CTAs, cards */}
         <motion.div
           className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20 pb-4 lg:pt-32 lg:pb-8 transition-opacity duration-700"
           style={{ opacity: showContent ? 1 : 0, y: contentY, pointerEvents: showContent ? "auto" : "none" }}
@@ -332,12 +332,12 @@ export default function ScrollVideoHero() {
                   fontWeight: 600,
                 }}
               >
-                Cap. 00 · Convite
+                Cap. 00 Â· Convite
               </span>
               <div className="h-px w-10" style={{ background: "rgba(168,216,78,0.45)" }} />
             </div>
 
-            {/* Headline — Two-tier: pre-title + palavra gigante */}
+            {/* Headline â€” Two-tier: pre-title + palavra gigante */}
             <div className="text-center">
               <div
                 className="mb-2"
@@ -366,11 +366,11 @@ export default function ScrollVideoHero() {
                   margin: 0,
                 }}
               >
-                Própria
+                PrÃ³pria
                 <br />
                 <span
                   style={{
-                    background: "linear-gradient(90deg, #68AF25 0%, #68AF25 48%, #00529B 52%, #00529B 100%)",
+                    background: "linear-gradient(90deg, #2E8DD6 0%, #2E8DD6 48%, #00529B 52%, #00529B 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
@@ -395,7 +395,7 @@ export default function ScrollVideoHero() {
                 letterSpacing: "0",
               }}
             >
-              Economize <span style={{ color: "#A8D84E", fontWeight: 700 }}>até 95%</span> na conta de luz com soluções para residências, empresas e indústrias.
+              Economize <span style={{ color: "#6FB8EE", fontWeight: 700 }}>atÃ© 95%</span> na conta de luz com soluÃ§Ãµes para residÃªncias, empresas e indÃºstrias.
             </p>
 
             {/* CTAs editorial */}
@@ -413,11 +413,11 @@ export default function ScrollVideoHero() {
                 }}
               >
                 <span style={{ borderBottom: "1px solid #ffffff", paddingBottom: "4px" }}>
-                  Iniciar Simulação
+                  Iniciar SimulaÃ§Ã£o
                 </span>
                 <span
                   className="inline-flex items-center justify-center rounded-full transition-transform duration-300 group-hover:translate-x-1"
-                  style={{ width: 36, height: 36, background: "#A8D84E", color: "#0A1A08" }}
+                  style={{ width: 36, height: 36, background: "#6FB8EE", color: "#0A1F38" }}
                 >
                   <svg viewBox="0 0 24 24" fill="none" className="w-3.5 h-3.5">
                     <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -438,13 +438,13 @@ export default function ScrollVideoHero() {
                 }}
               >
                 <span style={{ borderBottom: "1px dotted rgba(255,255,255,0.45)", paddingBottom: "3px" }}>
-                  Conheça nosso trabalho
+                  ConheÃ§a nosso trabalho
                 </span>
               </Link>
             </div>
           </div>
 
-          {/* Cards — editorial */}
+          {/* Cards â€” editorial */}
           <div className="w-full max-w-5xl mx-auto px-6 lg:px-10 mt-5 lg:mt-14">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-5">
               {cards.map((card, i) => (
@@ -467,7 +467,7 @@ export default function ScrollVideoHero() {
                         fontStyle: "italic",
                         fontWeight: 400,
                         fontSize: "1.5rem",
-                        color: "#A8D84E",
+                        color: "#6FB8EE",
                         lineHeight: 1,
                       }}
                     >

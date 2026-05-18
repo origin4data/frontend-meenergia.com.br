@@ -31,7 +31,7 @@ export default function Hero() {
     <section
       id="home"
       className="relative min-h-screen flex flex-col overflow-hidden"
-      style={{ background: "#0A1A08" }}
+      style={{ background: "#0A1F38" }}
     >
       {/* ── Video ── */}
       <video
@@ -99,7 +99,7 @@ export default function Hero() {
             }}
           >
             Economize{" "}
-            <span style={{ color: "#8ED44A", fontWeight: 600 }}>até 95%</span>{" "}
+            <span style={{ color: "#5BAEEA", fontWeight: 600 }}>até 95%</span>{" "}
             na conta de luz com soluções de energia solar para{" "}
             <span style={{ color: "rgba(255,255,255,0.90)" }}>residências</span>,{" "}
             <span style={{ color: "rgba(255,255,255,0.90)" }}>empresas</span> e{" "}
@@ -112,7 +112,7 @@ export default function Hero() {
               onClick={() => setModalOpen(true)}
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
               style={{
-                background: "linear-gradient(135deg, #3D7A00, #68AF25)",
+                background: "linear-gradient(135deg, #0066BD, #2E8DD6)",
                 borderRadius: "2rem",
                 boxShadow: "0 8px 32px rgba(61,122,0,0.55)",
                 fontFamily: "var(--font-jakarta, sans-serif)",

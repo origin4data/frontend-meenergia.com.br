@@ -1,4 +1,4 @@
-"use client";
+use client";
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -6,9 +6,9 @@ import Link from "next/link";
 
 const navLinks = [
   { label: "Sobre", href: "/#sobre" },
-  { label: "Serviços", href: "/servicos" },
-  { label: "Portfólio", href: "/portfolio" },
-  { label: "Orçamento", href: "/#orcamento" },
+  { label: "ServiÃ§os", href: "/servicos" },
+  { label: "PortfÃ³lio", href: "/portfolio" },
+  { label: "OrÃ§amento", href: "/#orcamento" },
 ];
 
 const PHONE = "+55 27 99721-9703";
@@ -69,7 +69,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20 gap-6">
 
-          {/* ── Logo ── */}
+          {/* â”€â”€ Logo â”€â”€ */}
           <Link href="/#home" className="shrink-0">
             <Image
               src="/logo-mundo-eletrico.png"
@@ -82,7 +82,7 @@ export default function Header() {
             />
           </Link>
 
-          {/* ── Desktop Navigation ── */}
+          {/* â”€â”€ Desktop Navigation â”€â”€ */}
           <nav className="hidden lg:flex items-center gap-1 flex-1 justify-center">
             {navLinks.map((link) => (
               <Link
@@ -106,7 +106,7 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* ── Right: Contacts + CTA ── */}
+          {/* â”€â”€ Right: Contacts + CTA â”€â”€ */}
           <div className="hidden lg:flex items-center gap-4 shrink-0">
 
             <a
@@ -135,7 +135,7 @@ export default function Header() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 hover:-translate-y-px whitespace-nowrap ml-1"
               style={{
-                background: "linear-gradient(135deg, #3D7A00, #68AF25)",
+                background: "linear-gradient(135deg, #0066BD, #2E8DD6)",
                 borderRadius: "2rem",
                 boxShadow: "0 4px 16px rgba(61,122,0,0.40)",
                 fontFamily: "var(--font-jakarta, sans-serif)",
@@ -146,7 +146,7 @@ export default function Header() {
             </a>
           </div>
 
-          {/* ── Mobile Hamburger ── */}
+          {/* â”€â”€ Mobile Hamburger â”€â”€ */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 rounded-lg transition-colors"
@@ -172,7 +172,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* ── Mobile Menu ── */}
+      {/* â”€â”€ Mobile Menu â”€â”€ */}
       <div
         className="lg:hidden overflow-hidden transition-all duration-300"
         style={{
@@ -212,7 +212,7 @@ export default function Header() {
               rel="noopener noreferrer"
               onClick={() => setMenuOpen(false)}
               className="flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-white mt-1 rounded-full transition-opacity hover:opacity-90"
-              style={{ background: "linear-gradient(135deg, #3D7A00, #68AF25)" }}
+              style={{ background: "linear-gradient(135deg, #0066BD, #2E8DD6)" }}
             >
               <WhatsappIcon />
               Chamar no WhatsApp

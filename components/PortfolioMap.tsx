@@ -1,4 +1,4 @@
-"use client";
+use client";
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
@@ -64,7 +64,7 @@ export default function PortfolioMap({ projects, activeId, onActiveChange }: Pro
       }).setView([-18.7, -40.0], 7);
 
       L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-        attribution: "© OpenStreetMap · CartoDB",
+        attribution: "Â© OpenStreetMap Â· CartoDB",
         subdomains: "abcd",
         maxZoom: 18,
       }).addTo(mapInstance);
@@ -108,7 +108,7 @@ export default function PortfolioMap({ projects, activeId, onActiveChange }: Pro
 
       const visibleIds = new Set(projects.map((p) => p.id));
 
-      // Remove marcadores que saíram do filtro
+      // Remove marcadores que saÃ­ram do filtro
       markersRef.current.forEach((marker, id) => {
         if (!visibleIds.has(id)) {
           try { marker.remove(); } catch { /* ignore */ }
@@ -203,10 +203,10 @@ export default function PortfolioMap({ projects, activeId, onActiveChange }: Pro
                   fontWeight: 900,
                   fontSize: "10px",
                   letterSpacing: "0.18em",
-                  color: "#2D5A00",
+                  color: "#00529B",
                 }}
               >
-                P-{hoverProject.num} · {hoverProject.segment}
+                P-{hoverProject.num} Â· {hoverProject.segment}
               </div>
               <div
                 style={{
@@ -228,7 +228,7 @@ export default function PortfolioMap({ projects, activeId, onActiveChange }: Pro
                   color: "#6A6A60",
                 }}
               >
-                {hoverProject.city} — {hoverProject.state}
+                {hoverProject.city} â€” {hoverProject.state}
               </div>
               <div
                 className="flex items-baseline gap-1.5 mt-1.5 pt-1.5"
@@ -239,7 +239,7 @@ export default function PortfolioMap({ projects, activeId, onActiveChange }: Pro
                     fontFamily: "var(--font-hanken, sans-serif)",
                     fontWeight: 900,
                     fontSize: "0.875rem",
-                    color: "#2D5A00",
+                    color: "#00529B",
                   }}
                 >
                   R$ {hoverProject.economia}
@@ -252,7 +252,7 @@ export default function PortfolioMap({ projects, activeId, onActiveChange }: Pro
                     color: "#6A6A60",
                   }}
                 >
-                  /mês · {hoverProject.kwp} kWp
+                  /mÃªs Â· {hoverProject.kwp} kWp
                 </span>
               </div>
             </div>
@@ -280,8 +280,8 @@ export default function PortfolioMap({ projects, activeId, onActiveChange }: Pro
           height: 32px;
           border-radius: 50%;
           background: #fff;
-          border: 2px solid #2D5A00;
-          color: #2D5A00;
+          border: 2px solid #00529B;
+          color: #00529B;
           font-family: var(--font-hanken, sans-serif);
           font-weight: 900;
           font-size: 11px;
@@ -295,11 +295,11 @@ export default function PortfolioMap({ projects, activeId, onActiveChange }: Pro
         .me-marker-inner.active {
           width: 44px;
           height: 44px;
-          background: #0A1A08;
-          border: 2px solid #A8D84E;
-          color: #A8D84E;
+          background: #0A1F38;
+          border: 2px solid #6FB8EE;
+          color: #6FB8EE;
           font-size: 13px;
-          box-shadow: 0 12px 32px rgba(10,26,8,0.40), 0 0 0 6px rgba(168,216,78,0.18);
+          box-shadow: 0 12px 32px rgba(10,31,56,0.40), 0 0 0 6px rgba(168,216,78,0.18);
         }
         .me-marker-inner:hover {
           transform: scale(1.1);

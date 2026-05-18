@@ -1,4 +1,4 @@
-"use client";
+use client";
 
 import Image from "next/image";
 
@@ -35,11 +35,11 @@ export default function Footer() {
   return (
     <footer
       className="relative overflow-hidden"
-      style={{ background: "#0A1A08", color: "#F4EFE6" }}
+      style={{ background: "#0A1F38", color: "#F4EFE6" }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
-        {/* ── Main row ── */}
+        {/* â”€â”€ Main row â”€â”€ */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-5 py-7 lg:py-8">
 
           {/* Logo */}
@@ -59,7 +59,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="text-sm transition-colors duration-200"
               style={{ color: "rgba(244,239,230,0.80)", fontFamily: "var(--font-jakarta, sans-serif)" }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = "#A8D84E"; }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = "#6FB8EE"; }}
               onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(244,239,230,0.80)"; }}
             >
               {PHONE}
@@ -68,7 +68,7 @@ export default function Footer() {
               href={EMAIL_HREF}
               className="text-sm transition-colors duration-200"
               style={{ color: "rgba(244,239,230,0.80)", fontFamily: "var(--font-jakarta, sans-serif)" }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = "#A8D84E"; }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = "#6FB8EE"; }}
               onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(244,239,230,0.80)"; }}
             >
               {EMAIL}
@@ -90,7 +90,7 @@ export default function Footer() {
                     aria-label={s.label}
                     className="transition-colors duration-200"
                     style={{ color: "rgba(244,239,230,0.65)" }}
-                    onMouseEnter={(e) => { e.currentTarget.style.color = "#A8D84E"; }}
+                    onMouseEnter={(e) => { e.currentTarget.style.color = "#6FB8EE"; }}
                     onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(244,239,230,0.65)"; }}
                   >
                     <Icon />
@@ -101,7 +101,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ── Bottom bar ── */}
+        {/* â”€â”€ Bottom bar â”€â”€ */}
         <div
           className="flex flex-col sm:flex-row items-center justify-between gap-1 py-3 border-t text-[11px]"
           style={{
@@ -110,14 +110,14 @@ export default function Footer() {
             fontFamily: "var(--font-jakarta, sans-serif)",
           }}
         >
-          <p>© {new Date().getFullYear()} ME Energia Solar.</p>
+          <p>Â© {new Date().getFullYear()} ME Energia Solar.</p>
           <p>
             Desenvolvido por{" "}
             <a
               href="https://origindata.com.br"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-2 transition-colors hover:text-[#A8D84E]"
+              className="underline underline-offset-2 transition-colors hover:text-[#6FB8EE]"
             >
               Origindata
             </a>
