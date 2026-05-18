@@ -370,7 +370,7 @@ export default function ScrollVideoHero() {
                 <br />
                 <span
                   style={{
-                    background: "linear-gradient(90deg, #2E8DD6 0%, #2E8DD6 48%, #00529B 52%, #00529B 100%)",
+                    background: "linear-gradient(90deg, #68AF25 0%, #68AF25 48%, #00529B 52%, #00529B 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
