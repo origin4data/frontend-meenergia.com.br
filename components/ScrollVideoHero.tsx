@@ -1,4 +1,4 @@
-use client";
+"use client";
 
 import { useRef, useState, useCallback, useEffect } from "react";
 import Link from "next/link";
@@ -9,19 +9,19 @@ import SimulationModal from "./SimulationModal";
 const cards = [
   {
     image: "/card/sol-pilha-verde.png",
-    text: "Economize em atÃ© 95% na sua conta de energia.",
+    text: "Economize em até 95% na sua conta de energia.",
   },
   {
     image: "/card/tomada.card.png",
-    text: "Tenha liberdade e independÃªncia energÃ©tica.",
+    text: "Tenha liberdade e independência energética.",
   },
   {
     image: "/card/casa-planta-verde.png",
-    text: "Valorize seu imÃ³vel, tornando-o sustentÃ¡vel.",
+    text: "Valorize seu imóvel, tornando-o sustentável.",
   },
   {
     image: "/card/painel-solar-verde.png",
-    text: "Tecnologia WEG com atÃ© 25 anos de garantia.",
+    text: "Tecnologia WEG com até 25 anos de garantia.",
   },
 ];
 
@@ -41,12 +41,12 @@ export default function ScrollVideoHero() {
 
   const contentY = useTransform(scrollYProgress, [0.75, 0.9], [40, 0]);
 
-  // frase de impacto inicial â€” desaparece quando o usuÃ¡rio comeÃ§a a rolar
+  // frase de impacto inicial — desaparece quando o usuário começa a rolar
   const introOpacity = useTransform(scrollYProgress, [0, 0.06], [1, 0]);
   const introY = useTransform(scrollYProgress, [0, 0.06], [0, -30]);
   const introScale = useTransform(scrollYProgress, [0, 0.06], [1, 0.95]);
 
-  // filtro do vÃ­deo â€” blur no inÃ­cio (frase visÃ­vel) e no final (conteÃºdo)
+  // filtro do vídeo — blur no início (frase visível) e no final (conteúdo)
   const videoFilter = useTransform(scrollYProgress, (p) => {
     if (p < 0.08) {
       const t = p / 0.08;
@@ -108,7 +108,7 @@ export default function ScrollVideoHero() {
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
 
-        {/* VÃ­deo â€” blur no inÃ­cio (frase) e no final (conteÃºdo) */}
+        {/* Vídeo — blur no início (frase) e no final (conteúdo) */}
         <motion.video
           ref={videoRef}
           className="absolute inset-0 h-full w-full object-cover"
@@ -123,13 +123,13 @@ export default function ScrollVideoHero() {
           aria-hidden="true"
         />
 
-        {/* Frase de impacto â€” visÃ­vel no time 0 do vÃ­deo */}
+        {/* Frase de impacto — visível no time 0 do vídeo */}
         {showIntro && (
         <motion.div
           className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-6 pointer-events-none"
           style={{ opacity: introOpacity, y: introY, scale: introScale }}
         >
-          {/* Logo watermark atrÃ¡s do texto */}
+          {/* Logo watermark atrás do texto */}
           <div
             className="absolute inset-0 flex items-center justify-center pointer-events-none"
             style={{ zIndex: -1 }}
@@ -159,7 +159,7 @@ export default function ScrollVideoHero() {
                 fontWeight: 500,
               }}
             >
-              ME Â· Energia Solar
+              ME · Energia Solar
             </span>
             <div className="h-px w-12" style={{ background: "rgba(255,255,255,0.45)" }} />
             <span
@@ -175,7 +175,7 @@ export default function ScrollVideoHero() {
             </span>
           </div>
 
-          {/* Headline â€” direta, peso mÃ¡ximo */}
+          {/* Headline — direta, peso máximo */}
           <h2
             className="mb-6"
             style={{
@@ -189,7 +189,7 @@ export default function ScrollVideoHero() {
               textTransform: "uppercase",
             }}
           >
-            O sol Ã©{" "}
+            O sol é{" "}
             <span
               style={{
                 background: "#6FB8EE",
@@ -217,12 +217,12 @@ export default function ScrollVideoHero() {
               letterSpacing: "0",
             }}
           >
-            Transforme cada raio em independÃªncia energÃ©tica.
+            Transforme cada raio em independência energética.
           </p>
         </motion.div>
         )}
 
-        {/* Badge WEG + indicador de scroll â€” direita centro vertical (oculto no mobile) */}
+        {/* Badge WEG + indicador de scroll — direita centro vertical (oculto no mobile) */}
         <div
           className="hidden lg:flex absolute right-10 top-1/2 -translate-y-1/2 z-20 flex-col items-center gap-5 transition-opacity duration-700"
           style={{ opacity: showContent ? 0 : 1, pointerEvents: showContent ? "none" : "auto" }}
@@ -264,7 +264,7 @@ export default function ScrollVideoHero() {
             style={{ background: "rgba(255,255,255,0.30)" }}
           />
 
-          {/* Indicador scroll â€” Archivo bold */}
+          {/* Indicador scroll — Archivo bold */}
           <div className="flex flex-col items-center gap-3">
             <span
               className="whitespace-nowrap"
@@ -300,7 +300,7 @@ export default function ScrollVideoHero() {
           </div>
         </div>
 
-        {/* Overlay escuro â€” reforÃ§a o foco no texto */}
+        {/* Overlay escuro — reforça o foco no texto */}
         <div
           className="absolute inset-0 transition-opacity duration-700"
           style={{
@@ -316,7 +316,7 @@ export default function ScrollVideoHero() {
           }}
         />
 
-        {/* ConteÃºdo â€” texto, CTAs, cards */}
+        {/* Conteúdo — texto, CTAs, cards */}
         <motion.div
           className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20 pb-4 lg:pt-32 lg:pb-8 transition-opacity duration-700"
           style={{ opacity: showContent ? 1 : 0, y: contentY, pointerEvents: showContent ? "auto" : "none" }}
@@ -332,12 +332,12 @@ export default function ScrollVideoHero() {
                   fontWeight: 600,
                 }}
               >
-                Cap. 00 Â· Convite
+                Cap. 00 · Convite
               </span>
               <div className="h-px w-10" style={{ background: "rgba(168,216,78,0.45)" }} />
             </div>
 
-            {/* Headline â€” Two-tier: pre-title + palavra gigante */}
+            {/* Headline — Two-tier: pre-title + palavra gigante */}
             <div className="text-center">
               <div
                 className="mb-2"
@@ -366,7 +366,7 @@ export default function ScrollVideoHero() {
                   margin: 0,
                 }}
               >
-                PrÃ³pria
+                Própria
                 <br />
                 <span
                   style={{
@@ -395,7 +395,7 @@ export default function ScrollVideoHero() {
                 letterSpacing: "0",
               }}
             >
-              Economize <span style={{ color: "#6FB8EE", fontWeight: 700 }}>atÃ© 95%</span> na conta de luz com soluÃ§Ãµes para residÃªncias, empresas e indÃºstrias.
+              Economize <span style={{ color: "#6FB8EE", fontWeight: 700 }}>até 95%</span> na conta de luz com soluções para residências, empresas e indústrias.
             </p>
 
             {/* CTAs editorial */}
@@ -413,7 +413,7 @@ export default function ScrollVideoHero() {
                 }}
               >
                 <span style={{ borderBottom: "1px solid #ffffff", paddingBottom: "4px" }}>
-                  Iniciar SimulaÃ§Ã£o
+                  Iniciar Simulação
                 </span>
                 <span
                   className="inline-flex items-center justify-center rounded-full transition-transform duration-300 group-hover:translate-x-1"
@@ -438,13 +438,13 @@ export default function ScrollVideoHero() {
                 }}
               >
                 <span style={{ borderBottom: "1px dotted rgba(255,255,255,0.45)", paddingBottom: "3px" }}>
-                  ConheÃ§a nosso trabalho
+                  Conheça nosso trabalho
                 </span>
               </Link>
             </div>
           </div>
 
-          {/* Cards â€” editorial */}
+          {/* Cards — editorial */}
           <div className="w-full max-w-5xl mx-auto px-6 lg:px-10 mt-5 lg:mt-14">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-5">
               {cards.map((card, i) => (

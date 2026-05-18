@@ -1,4 +1,4 @@
-use client";
+"use client";
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
@@ -64,7 +64,7 @@ export default function PortfolioMap({ projects, activeId, onActiveChange }: Pro
       }).setView([-18.7, -40.0], 7);
 
       L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-        attribution: "Â© OpenStreetMap Â· CartoDB",
+        attribution: "© OpenStreetMap · CartoDB",
         subdomains: "abcd",
         maxZoom: 18,
       }).addTo(mapInstance);
@@ -108,7 +108,7 @@ export default function PortfolioMap({ projects, activeId, onActiveChange }: Pro
 
       const visibleIds = new Set(projects.map((p) => p.id));
 
-      // Remove marcadores que saÃ­ram do filtro
+      // Remove marcadores que saíram do filtro
       markersRef.current.forEach((marker, id) => {
         if (!visibleIds.has(id)) {
           try { marker.remove(); } catch { /* ignore */ }
@@ -206,7 +206,7 @@ export default function PortfolioMap({ projects, activeId, onActiveChange }: Pro
                   color: "#00529B",
                 }}
               >
-                P-{hoverProject.num} Â· {hoverProject.segment}
+                P-{hoverProject.num} · {hoverProject.segment}
               </div>
               <div
                 style={{
@@ -228,7 +228,7 @@ export default function PortfolioMap({ projects, activeId, onActiveChange }: Pro
                   color: "#6A6A60",
                 }}
               >
-                {hoverProject.city} â€” {hoverProject.state}
+                {hoverProject.city} — {hoverProject.state}
               </div>
               <div
                 className="flex items-baseline gap-1.5 mt-1.5 pt-1.5"
@@ -252,7 +252,7 @@ export default function PortfolioMap({ projects, activeId, onActiveChange }: Pro
                     color: "#6A6A60",
                   }}
                 >
-                  /mÃªs Â· {hoverProject.kwp} kWp
+                  /mês · {hoverProject.kwp} kWp
                 </span>
               </div>
             </div>

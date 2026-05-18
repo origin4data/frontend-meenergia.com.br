@@ -1,13 +1,13 @@
-use client";
+"use client";
 
 import { useState, useCallback } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, ArrowRight, ArrowLeft, Check, MessageCircle } from "lucide-react";
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ────────────────────────────────────────────────────────────
    TYPES & DATA
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+   ──────────────────────────────────────────────────────────── */
 
 interface FormData {
   monthlyBill: string;
@@ -35,16 +35,16 @@ const UNIT_TYPES = [
 ];
 
 const STEP_META = [
-  { num: "01", title: "Sua conta", subtitle: "Quanto vocÃª paga por mÃªs" },
-  { num: "02", title: "Seus dados", subtitle: "Quem Ã©, e onde fica" },
-  { num: "03", title: "Contato", subtitle: "Como te enviar o orÃ§amento" },
+  { num: "01", title: "Sua conta", subtitle: "Quanto você paga por mês" },
+  { num: "02", title: "Seus dados", subtitle: "Quem é, e onde fica" },
+  { num: "03", title: "Contato", subtitle: "Como te enviar o orçamento" },
 ];
 
 const TOTAL_STEPS = STEP_META.length;
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ────────────────────────────────────────────────────────────
    HELPERS
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+   ──────────────────────────────────────────────────────────── */
 
 function currency(v: number) {
   return v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
@@ -64,9 +64,9 @@ const slideVariants = {
   exit: (dir: number) => ({ x: dir > 0 ? -30 : 30, opacity: 0 }),
 };
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ────────────────────────────────────────────────────────────
    ROOT MODAL
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+   ──────────────────────────────────────────────────────────── */
 
 export default function SimulationModal({
   open,
@@ -130,9 +130,9 @@ export default function SimulationModal({
         onClick={(e) => e.stopPropagation()}
       >
 
-        {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+        {/* ════════════════════════════════════════════
             HEADER + PROGRESS
-            â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+            ════════════════════════════════════════════ */}
         <header
           className="sticky top-0 z-30 px-5 lg:px-7 py-4 border-b bg-white"
           style={{ borderColor: "#141410", borderBottomWidth: "1.5px" }}
@@ -149,10 +149,10 @@ export default function SimulationModal({
                   textTransform: "uppercase",
                 }}
               >
-                â€” SimulaÃ§Ã£o ME
+                — Simulação ME
               </span>
               {step === 0 && (
-                <span style={smallMetaStyle}>ApresentaÃ§Ã£o</span>
+                <span style={smallMetaStyle}>Apresentação</span>
               )}
               {isFormStep && (
                 <span style={smallMetaStyle}>
@@ -161,7 +161,7 @@ export default function SimulationModal({
               )}
               {step === 4 && (
                 <span style={{ ...smallMetaStyle, color: "#00529B", fontWeight: 800 }}>
-                  âœ“ ConcluÃ­do
+                  ✓ Concluído
                 </span>
               )}
             </div>
@@ -199,9 +199,9 @@ export default function SimulationModal({
           )}
         </header>
 
-        {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+        {/* ════════════════════════════════════════════
             STEPS CONTAINER
-            â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+            ════════════════════════════════════════════ */}
         <div className="relative">
           <AnimatePresence mode="wait" custom={dir}>
             <motion.div
@@ -238,9 +238,9 @@ export default function SimulationModal({
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ────────────────────────────────────────────────────────────
    SHARED STYLES & COMPONENTS
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+   ──────────────────────────────────────────────────────────── */
 
 const smallMetaStyle: React.CSSProperties = {
   fontFamily: "var(--font-hanken, sans-serif)",
@@ -364,7 +364,7 @@ function StepSidePanel({ num, title, subtitle }: { num: string; title: string; s
             textTransform: "uppercase",
           }}
         >
-          â€” {subtitle}
+          — {subtitle}
         </div>
       </div>
 
@@ -399,9 +399,9 @@ function StepSidePanel({ num, title, subtitle }: { num: string; title: string; s
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-   STEP 0 â€” INTRO
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────
+   STEP 0 — INTRO
+   ──────────────────────────────────────────────────────────── */
 
 function Step0({ onNext }: { onNext: () => void }) {
   return (
@@ -433,7 +433,7 @@ function Step0({ onNext }: { onNext: () => void }) {
               textTransform: "uppercase",
             }}
           >
-            â€” ME Energia Solar
+            — ME Energia Solar
           </div>
         </div>
 
@@ -464,14 +464,14 @@ function Step0({ onNext }: { onNext: () => void }) {
               margin: 0,
             }}
           >
-            ~40 segundos para receber sua simulaÃ§Ã£o personalizada.
+            ~40 segundos para receber sua simulação personalizada.
           </p>
         </div>
       </div>
 
       {/* Content */}
       <div className="md:col-span-7 px-6 py-8 md:px-10 md:py-12 flex flex-col justify-center">
-        <h3 style={sectionTitleStyle}>Vamos comeÃ§ar?</h3>
+        <h3 style={sectionTitleStyle}>Vamos começar?</h3>
         <p
           className="mt-4 mb-8"
           style={{
@@ -482,7 +482,7 @@ function Step0({ onNext }: { onNext: () => void }) {
             lineHeight: 1.6,
           }}
         >
-          Em <strong style={{ fontWeight: 800, color: "#141410" }}>3 etapas curtas</strong>, vocÃª recebe a projeÃ§Ã£o da economia mensal, payback estimado e custo aproximado do seu sistema solar.
+          Em <strong style={{ fontWeight: 800, color: "#141410" }}>3 etapas curtas</strong>, você recebe a projeção da economia mensal, payback estimado e custo aproximado do seu sistema solar.
         </p>
 
         {/* Steps preview */}
@@ -533,16 +533,16 @@ function Step0({ onNext }: { onNext: () => void }) {
         </div>
 
         <PrimaryBtn onClick={onNext}>
-          Iniciar simulaÃ§Ã£o <ArrowRight size={14} strokeWidth={2.5} />
+          Iniciar simulação <ArrowRight size={14} strokeWidth={2.5} />
         </PrimaryBtn>
       </div>
     </div>
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-   STEP 1 â€” Conta
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────
+   STEP 1 — Conta
+   ──────────────────────────────────────────────────────────── */
 
 function Step1({
   form,
@@ -557,10 +557,10 @@ function Step1({
 }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 min-h-[480px]">
-      <StepSidePanel num="01" title="Sua conta de luz" subtitle="Etapa 01 â€” Conta" />
+      <StepSidePanel num="01" title="Sua conta de luz" subtitle="Etapa 01 — Conta" />
 
       <div className="md:col-span-7 px-6 py-8 md:px-10 md:py-12 flex flex-col justify-center">
-        <h3 style={sectionTitleStyle}>Quanto vocÃª paga por mÃªs na conta de luz?</h3>
+        <h3 style={sectionTitleStyle}>Quanto você paga por mês na conta de luz?</h3>
         <p
           className="mt-3 mb-8"
           style={{
@@ -571,7 +571,7 @@ function Step1({
             lineHeight: 1.55,
           }}
         >
-          Informe o valor mÃ©dio da sua fatura mensal.
+          Informe o valor médio da sua fatura mensal.
         </p>
 
         <label style={labelStyle}>Valor mensal (R$)</label>
@@ -599,7 +599,7 @@ function Step1({
 
         {/* Quick picks */}
         <div className="mt-8">
-          <div style={{ ...labelStyle, marginBottom: "10px" }}>SugestÃµes</div>
+          <div style={{ ...labelStyle, marginBottom: "10px" }}>Sugestões</div>
           <div className="flex flex-wrap gap-2">
             {[200, 400, 600, 1000, 2000, 5000].map((v) => {
               const active = form.monthlyBill === String(v);
@@ -629,7 +629,7 @@ function Step1({
         <div className="flex items-center justify-between gap-4 mt-12 pt-6 border-t" style={{ borderColor: "#C9C2B4" }}>
           <BackBtn onClick={onPrev} />
           <PrimaryBtn onClick={onNext} disabled={!form.monthlyBill}>
-            PrÃ³xima etapa <ArrowRight size={14} strokeWidth={2.5} />
+            Próxima etapa <ArrowRight size={14} strokeWidth={2.5} />
           </PrimaryBtn>
         </div>
       </div>
@@ -637,9 +637,9 @@ function Step1({
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-   STEP 2 â€” Perfil
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────
+   STEP 2 — Perfil
+   ──────────────────────────────────────────────────────────── */
 
 function Step2({
   form,
@@ -654,10 +654,10 @@ function Step2({
 }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 min-h-[480px]">
-      <StepSidePanel num="02" title="Seus dados" subtitle="Etapa 02 â€” Perfil" />
+      <StepSidePanel num="02" title="Seus dados" subtitle="Etapa 02 — Perfil" />
 
       <div className="md:col-span-7 px-6 py-8 md:px-10 md:py-12 flex flex-col justify-center">
-        <h3 style={sectionTitleStyle}>Quem Ã©, e onde fica a unidade?</h3>
+        <h3 style={sectionTitleStyle}>Quem é, e onde fica a unidade?</h3>
         <p
           className="mt-3 mb-8"
           style={{
@@ -668,7 +668,7 @@ function Step2({
             lineHeight: 1.55,
           }}
         >
-          Para preparar sua simulaÃ§Ã£o personalizada.
+          Para preparar sua simulação personalizada.
         </p>
 
         <div className="space-y-7">
@@ -676,7 +676,7 @@ function Step2({
             <label style={labelStyle}>Seu nome completo</label>
             <input
               type="text"
-              placeholder="JoÃ£o da Silva"
+              placeholder="João da Silva"
               value={form.name}
               onChange={(e) => set("name", e.target.value)}
               style={inputStyle}
@@ -733,7 +733,7 @@ function Step2({
         <div className="flex items-center justify-between gap-4 mt-10 pt-6 border-t" style={{ borderColor: "#C9C2B4" }}>
           <BackBtn onClick={onPrev} />
           <PrimaryBtn onClick={onNext} disabled={!form.name || !form.unitType}>
-            PrÃ³xima etapa <ArrowRight size={14} strokeWidth={2.5} />
+            Próxima etapa <ArrowRight size={14} strokeWidth={2.5} />
           </PrimaryBtn>
         </div>
       </div>
@@ -741,9 +741,9 @@ function Step2({
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-   STEP 3 â€” Contato
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────
+   STEP 3 — Contato
+   ──────────────────────────────────────────────────────────── */
 
 function Step3({
   form,
@@ -758,12 +758,12 @@ function Step3({
 }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 min-h-[480px]">
-      <StepSidePanel num="03" title="Contato" subtitle="Etapa 03 â€” Ãšltima" />
+      <StepSidePanel num="03" title="Contato" subtitle="Etapa 03 — Última" />
 
       <div className="md:col-span-7 px-6 py-8 md:px-10 md:py-12 flex flex-col justify-center">
         <h3 style={sectionTitleStyle}>
-          Ãšltima etapa.{" "}
-          <em style={{ fontStyle: "italic", color: "#00529B" }}>Quase lÃ¡.</em>
+          Última etapa.{" "}
+          <em style={{ fontStyle: "italic", color: "#00529B" }}>Quase lá.</em>
         </h3>
         <p
           className="mt-3 mb-8"
@@ -775,7 +775,7 @@ function Step3({
             lineHeight: 1.55,
           }}
         >
-          Para te enviar o orÃ§amento detalhado.
+          Para te enviar o orçamento detalhado.
         </p>
 
         <div className="space-y-7">
@@ -805,7 +805,7 @@ function Step3({
             <label style={labelStyle}>Cidade</label>
             <input
               type="text"
-              placeholder="VitÃ³ria â€” ES"
+              placeholder="Vitória — ES"
               value={form.city}
               onChange={(e) => set("city", e.target.value)}
               style={inputStyle}
@@ -824,9 +824,9 @@ function Step3({
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-   STEP 4 â€” Resultado
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ────────────────────────────────────────────────────────────
+   STEP 4 — Resultado
+   ──────────────────────────────────────────────────────────── */
 
 function Step4({
   form,
@@ -872,7 +872,7 @@ function Step4({
               textTransform: "uppercase",
             }}
           >
-            âœ“ Sua economia
+            ✓ Sua economia
           </div>
         </div>
 
@@ -939,7 +939,7 @@ function Step4({
             >
               {currency(newBill)}
               <span style={{ fontSize: "0.875rem", fontWeight: 600, color: "rgba(244,239,230,0.55)", marginLeft: "4px" }}>
-                /mÃªs
+                /mês
               </span>
             </p>
           </div>
@@ -949,7 +949,7 @@ function Step4({
       {/* Details */}
       <div className="md:col-span-7 px-6 py-8 md:px-10 md:py-12">
         <h3 style={sectionTitleStyle}>
-          OlÃ¡, {form.name.split(" ")[0]}.
+          Olá, {form.name.split(" ")[0]}.
         </h3>
         <p
           className="mt-3 mb-8"
@@ -961,12 +961,12 @@ function Step4({
             lineHeight: 1.55,
           }}
         >
-          Aqui estÃ¡ a projeÃ§Ã£o para sua unidade <strong style={{ fontWeight: 800, color: "#141410" }}>{form.unitType.toLowerCase()}</strong> em {form.city}.
+          Aqui está a projeção para sua unidade <strong style={{ fontWeight: 800, color: "#141410" }}>{form.unitType.toLowerCase()}</strong> em {form.city}.
         </p>
 
         <div className="grid grid-cols-2 gap-x-6 gap-y-5 mb-8 pt-6 border-t" style={{ borderColor: "#141410", borderTopWidth: "1.5px" }}>
           <ResultStat code="R-01" label="Em 25 anos" value={currency(savings25y)} highlight />
-          <ResultStat code="R-02" label="Por mÃªs" value={currency(monthlySavings)} />
+          <ResultStat code="R-02" label="Por mês" value={currency(monthlySavings)} />
           <ResultStat code="R-03" label="Investimento" value={currency(systemCost)} />
           <ResultStat code="R-04" label="Payback" value={`${paybackMonths} meses`} />
         </div>
@@ -981,7 +981,7 @@ function Step4({
             lineHeight: 1.55,
           }}
         >
-          * Valores estimados com base na conta informada. SimulaÃ§Ã£o tÃ©cnica detalhada apÃ³s visita.
+          * Valores estimados com base na conta informada. Simulação técnica detalhada após visita.
         </p>
 
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-6 border-t" style={{ borderColor: "#C9C2B4" }}>
@@ -1002,7 +1002,7 @@ function Step4({
             </button>
             <a
               href={`https://wa.me/5527997218703?text=${encodeURIComponent(
-                `OlÃ¡! Fiz a simulaÃ§Ã£o no site e gostaria de um orÃ§amento.\nNome: ${form.name}\nConta mensal: R$${form.monthlyBill}\nTipo: ${form.unitType}\nCidade: ${form.city}`
+                `Olá! Fiz a simulação no site e gostaria de um orçamento.\nNome: ${form.name}\nConta mensal: R$${form.monthlyBill}\nTipo: ${form.unitType}\nCidade: ${form.city}`
               )}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -1018,7 +1018,7 @@ function Step4({
                 borderRadius: "999px",
               }}
             >
-              <MessageCircle size={14} strokeWidth={2.5} /> Solicitar orÃ§amento
+              <MessageCircle size={14} strokeWidth={2.5} /> Solicitar orçamento
             </a>
           </div>
         </div>

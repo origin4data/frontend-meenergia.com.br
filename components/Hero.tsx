@@ -46,10 +46,10 @@ export default function Hero() {
 
       {/* ── Layered Overlays ── */}
       <div className="absolute inset-0" style={{
-        background: "linear-gradient(to bottom, rgba(8,20,4,0.75) 0%, rgba(8,20,4,0.40) 35%, rgba(8,20,4,0.70) 70%, rgba(8,20,4,0.95) 100%)"
+        background: "linear-gradient(to bottom, rgba(8,18,40,0.75) 0%, rgba(8,18,40,0.40) 35%, rgba(8,18,40,0.70) 70%, rgba(8,18,40,0.95) 100%)"
       }} />
       <div className="absolute inset-0" style={{
-        background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(61,122,0,0.18) 0%, transparent 70%)"
+        background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,102,189,0.18) 0%, transparent 70%)"
       }} />
 
       {/* ── Content ── */}
@@ -114,7 +114,7 @@ export default function Hero() {
               style={{
                 background: "linear-gradient(135deg, #0066BD, #2E8DD6)",
                 borderRadius: "2rem",
-                boxShadow: "0 8px 32px rgba(61,122,0,0.55)",
+                boxShadow: "0 8px 32px rgba(0,102,189,0.55)",
                 fontFamily: "var(--font-jakarta, sans-serif)",
                 letterSpacing: "0.01em",
               }}

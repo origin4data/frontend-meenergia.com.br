@@ -1,4 +1,4 @@
-use client";
+"use client";
 
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
@@ -17,16 +17,16 @@ type Project = {
 };
 
 const PROJECTS: Project[] = [
-  { id: 1, num: "01", title: "Alcides Guisolfi", city: "SÃ£o Mateus", state: "ES", kwp: "59,84", geracao: "7.230", modulos: "146", economia: "5.277", image: "/Projetos/alcidesguisolfi.jpg" },
-  { id: 2, num: "02", title: "Escola Master", city: "SÃ£o Mateus", state: "ES", kwp: "139,00", geracao: "17.000", modulos: "403", economia: "13.770", image: "/Projetos/escolamaster.jpg" },
+  { id: 1, num: "01", title: "Alcides Guisolfi", city: "São Mateus", state: "ES", kwp: "59,84", geracao: "7.230", modulos: "146", economia: "5.277", image: "/Projetos/alcidesguisolfi.jpg" },
+  { id: 2, num: "02", title: "Escola Master", city: "São Mateus", state: "ES", kwp: "139,00", geracao: "17.000", modulos: "403", economia: "13.770", image: "/Projetos/escolamaster.jpg" },
   { id: 3, num: "03", title: "Proteinorte", city: "Linhares", state: "ES", kwp: "399,84", geracao: "47.980", modulos: "784", economia: "35.000", image: "/Projetos/proteinorte.jpg" },
-  { id: 4, num: "04", title: "Renato CÃ©sar Pimenta Maia", city: "Nova VenÃ©cia", state: "ES", kwp: "41,31", geracao: "4.900", modulos: "81", economia: "3.577", image: "/Projetos/renatocesar.jpg" },
-  { id: 5, num: "05", title: "Hotel Ibis Styles", city: "SÃ£o Mateus", state: "ES", kwp: "140,80", geracao: "17.230", modulos: "408", economia: "13.959", image: "/Projetos/hotelibis.jpg" },
+  { id: 4, num: "04", title: "Renato César Pimenta Maia", city: "Nova Venécia", state: "ES", kwp: "41,31", geracao: "4.900", modulos: "81", economia: "3.577", image: "/Projetos/renatocesar.jpg" },
+  { id: 5, num: "05", title: "Hotel Ibis Styles", city: "São Mateus", state: "ES", kwp: "140,80", geracao: "17.230", modulos: "408", economia: "13.959", image: "/Projetos/hotelibis.jpg" },
   { id: 6, num: "06", title: "Brasigran", city: "Serra", state: "ES", kwp: "466,56", geracao: "55.987", modulos: "1.296", economia: "31.700", image: "/Projetos/brasigran.jpg" },
-  { id: 7, num: "07", title: "Vila Cizinho", city: "ConceiÃ§Ã£o da Barra", state: "ES", kwp: "10,20", geracao: "1.258", modulos: "20", economia: "1.045", image: "/Projetos/vilacizino.jpg" },
+  { id: 7, num: "07", title: "Vila Cizinho", city: "Conceição da Barra", state: "ES", kwp: "10,20", geracao: "1.258", modulos: "20", economia: "1.045", image: "/Projetos/vilacizino.jpg" },
   { id: 8, num: "08", title: "Posto Flecha", city: "Itamaraju", state: "BA", kwp: "140,14", geracao: "16.625", modulos: "308", economia: "13.466", image: "/Projetos/postoflecha.jpg" },
   { id: 9, num: "09", title: "Rally Pneus", city: "Linhares", state: "ES", kwp: "105,60", geracao: "12.618", modulos: "207", economia: "10.220", image: "/Projetos/rallypenus.jpg" },
-  { id: 10, num: "10", title: "FrigorÃ­fico Montanha", city: "Montanha", state: "ES", kwp: "141,90", geracao: "17.000", modulos: "258", economia: "13.700", image: "/Projetos/frigorificomontanha.jpg" },
+  { id: 10, num: "10", title: "Frigorífico Montanha", city: "Montanha", state: "ES", kwp: "141,90", geracao: "17.000", modulos: "258", economia: "13.700", image: "/Projetos/frigorificomontanha.jpg" },
 ];
 
 export default function ProjectsCarousel() {
@@ -65,7 +65,7 @@ export default function ProjectsCarousel() {
     >
       <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
 
-        {/* â”€â”€ Header â”€â”€ */}
+        {/* ── Header ── */}
         <div className="grid grid-cols-12 gap-x-6 gap-y-8 mb-12 lg:mb-16 items-end">
           <div className="col-span-12 lg:col-span-8">
             <div
@@ -79,7 +79,7 @@ export default function ProjectsCarousel() {
                 textTransform: "uppercase",
               }}
             >
-              â€” PortfÃ³lio
+              — Portfólio
             </div>
             <h2
               style={{
@@ -112,12 +112,12 @@ export default function ProjectsCarousel() {
                 color: "#3A3A34",
               }}
             >
-              Cada projeto Ã© dimensionado para o porte, consumo e topografia do cliente â€” engenharia desenhada na ME.
+              Cada projeto é dimensionado para o porte, consumo e topografia do cliente — engenharia desenhada na ME.
             </p>
           </div>
         </div>
 
-        {/* â”€â”€ Controls bar â”€â”€ */}
+        {/* ── Controls bar ── */}
         <div className="flex items-end justify-between mb-6 lg:mb-8">
           <div className="flex items-baseline gap-3">
             <span
@@ -164,7 +164,7 @@ export default function ProjectsCarousel() {
             </button>
             <button
               onClick={() => scrollByDir(1)}
-              aria-label="PrÃ³ximo"
+              aria-label="Próximo"
               className="flex items-center justify-center transition-all duration-300 hover:bg-[#141410] hover:text-white"
               style={{
                 width: 48,
@@ -181,7 +181,7 @@ export default function ProjectsCarousel() {
         </div>
       </div>
 
-      {/* â”€â”€ Carousel track â”€â”€ */}
+      {/* ── Carousel track ── */}
       <div
         ref={trackRef}
         className="relative flex gap-6 overflow-x-auto pb-6 scroll-smooth no-scrollbar"
@@ -239,7 +239,7 @@ export default function ProjectsCarousel() {
                   textTransform: "uppercase",
                 }}
               >
-                {p.city} â€” {p.state}
+                {p.city} — {p.state}
               </div>
 
               <h3
@@ -261,17 +261,17 @@ export default function ProjectsCarousel() {
                 className="flex flex-wrap pt-4"
                 style={{ borderTop: "2px solid #141410", gap: "0 24px" }}
               >
-                <Stat label="PotÃªncia" value={p.kwp} unit="kWp" />
-                <Stat label="GeraÃ§Ã£o" value={p.geracao} unit="kWh" />
-                <Stat label="MÃ³dulos" value={p.modulos} unit="" />
-                <Stat label="Economia/mÃªs" value={`R$ ${p.economia}`} unit="" highlight />
+                <Stat label="Potência" value={p.kwp} unit="kWp" />
+                <Stat label="Geração" value={p.geracao} unit="kWh" />
+                <Stat label="Módulos" value={p.modulos} unit="" />
+                <Stat label="Economia/mês" value={`R$ ${p.economia}`} unit="" highlight />
               </div>
             </div>
           </article>
         ))}
       </div>
 
-      {/* â”€â”€ Progress indicator â”€â”€ */}
+      {/* ── Progress indicator ── */}
       <div className="relative max-w-7xl mx-auto px-6 lg:px-12 mt-8 lg:mt-12">
         <div className="flex items-center gap-1.5">
           {PROJECTS.map((p, i) => (

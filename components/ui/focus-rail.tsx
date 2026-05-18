@@ -1,4 +1,4 @@
-use client";
+"use client";
 
 import * as React from "react";
 import { motion, AnimatePresence, PanInfo } from "framer-motion";
@@ -115,7 +115,7 @@ export function FocusRail({
       onKeyDown={onKeyDown}
       onWheel={onWheel}
     >
-      {/* Ambient glow from active image â€” very subtle on light bg */}
+      {/* Ambient glow from active image — very subtle on light bg */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <AnimatePresence mode="popLayout">
           <motion.div
@@ -312,7 +312,7 @@ export function FocusRail({
                 onClick={handleNext}
                 className="rounded-full p-2.5 transition-all hover:bg-gray-100 active:scale-95"
                 style={{ color: "#6A6A60" }}
-                aria-label="PrÃ³ximo"
+                aria-label="Próximo"
               >
                 <ChevronRight className="h-4 w-4" />
               </button>

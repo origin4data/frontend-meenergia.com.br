@@ -1,4 +1,4 @@
-use client";
+"use client";
 
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
@@ -16,7 +16,7 @@ const companies = [
   { id: "polimix", description: "Polimix Concreto", image: "/Empresas/Polimix-concreto.jpg" },
   { id: "protein-norte", description: "Protein Norte", image: "/Empresas/Protein-Norte.jpg" },
   { id: "rio-doce", description: "Rio Doce Hospital", image: "/Empresas/Rio-Doce-Hospital.jpg" },
-  { id: "sao-rafael", description: "SÃ£o Rafael Esquadrias", image: "/Empresas/Sao-Rafael-Esquadrias-Moveis-Decoracao.jpg" },
+  { id: "sao-rafael", description: "São Rafael Esquadrias", image: "/Empresas/Sao-Rafael-Esquadrias-Moveis-Decoracao.jpg" },
   { id: "steffen", description: "Steffen Centro de Eventos", image: "/Empresas/Steffen-Centro-de-Eventos.jpg" },
 ];
 
@@ -28,7 +28,7 @@ export default function CompaniesSlider() {
     >
       <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
 
-        {/* â”€â”€ Header â”€â”€ */}
+        {/* ── Header ── */}
         <div className="grid grid-cols-12 gap-x-6 gap-y-8 mb-16 lg:mb-20 items-end">
           <div className="col-span-12 lg:col-span-8">
             <div
@@ -42,7 +42,7 @@ export default function CompaniesSlider() {
                 textTransform: "uppercase",
               }}
             >
-              â€” Clientes
+              — Clientes
             </div>
             <h2
               style={{
@@ -75,13 +75,13 @@ export default function CompaniesSlider() {
                 color: "#3A3A34",
               }}
             >
-              IndÃºstrias, comÃ©rcios, hotÃ©is e hospitais â€” projetos solares no EspÃ­rito Santo e sul da Bahia.
+              Indústrias, comércios, hotéis e hospitais — projetos solares no Espírito Santo e sul da Bahia.
             </p>
           </div>
         </div>
       </div>
 
-      {/* â”€â”€ Slider full-bleed â”€â”€ */}
+      {/* ── Slider full-bleed ── */}
       <div className="relative w-full">
         <div
           className="absolute top-0 left-0 right-0"
@@ -144,7 +144,7 @@ export default function CompaniesSlider() {
         />
       </div>
 
-      {/* â”€â”€ Footer caption â”€â”€ */}
+      {/* ── Footer caption ── */}
       <div className="relative max-w-7xl mx-auto px-6 lg:px-12 mt-12 lg:mt-16">
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
           <div className="flex items-baseline gap-4">
@@ -196,7 +196,7 @@ export default function CompaniesSlider() {
               color: "#5A5448",
             }}
           >
-            Cada cliente Ã© um projeto Ãºnico â€” engenharia desenhada para o porte e contexto de cada operaÃ§Ã£o.
+            Cada cliente é um projeto único — engenharia desenhada para o porte e contexto de cada operação.
           </p>
         </div>
       </div>

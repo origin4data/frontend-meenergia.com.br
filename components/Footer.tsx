@@ -1,4 +1,4 @@
-use client";
+"use client";
 
 import Image from "next/image";
 
@@ -39,7 +39,7 @@ export default function Footer() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
-        {/* â”€â”€ Main row â”€â”€ */}
+        {/* ── Main row ── */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-5 py-7 lg:py-8">
 
           {/* Logo */}
@@ -101,7 +101,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* â”€â”€ Bottom bar â”€â”€ */}
+        {/* ── Bottom bar ── */}
         <div
           className="flex flex-col sm:flex-row items-center justify-between gap-1 py-3 border-t text-[11px]"
           style={{
@@ -110,7 +110,7 @@ export default function Footer() {
             fontFamily: "var(--font-jakarta, sans-serif)",
           }}
         >
-          <p>Â© {new Date().getFullYear()} ME Energia Solar.</p>
+          <p>© {new Date().getFullYear()} ME Energia Solar.</p>
           <p>
             Desenvolvido por{" "}
             <a

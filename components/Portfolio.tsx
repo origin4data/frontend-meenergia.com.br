@@ -1,4 +1,4 @@
-use client";
+"use client";
 
 import { useState, useMemo, useRef, useEffect } from "react";
 import dynamic from "next/dynamic";
@@ -34,21 +34,21 @@ type Project = {
 };
 
 const PROJECTS: Project[] = [
-  { id: 1, num: "01", title: "Alcides Guisolfi", city: "SÃ£o Mateus", state: "ES", segment: "Residencial", kwp: "59,84", geracao: "7.230", modulos: "146", economia: "5.277", image: "/Projetos/alcidesguisolfi.jpg", lat: -18.7160, lng: -39.8587 },
-  { id: 2, num: "02", title: "Escola Master", city: "SÃ£o Mateus", state: "ES", segment: "Comercial", kwp: "139,00", geracao: "17.000", modulos: "403", economia: "13.770", image: "/Projetos/escolamaster.jpg", lat: -18.7100, lng: -39.8650 },
+  { id: 1, num: "01", title: "Alcides Guisolfi", city: "São Mateus", state: "ES", segment: "Residencial", kwp: "59,84", geracao: "7.230", modulos: "146", economia: "5.277", image: "/Projetos/alcidesguisolfi.jpg", lat: -18.7160, lng: -39.8587 },
+  { id: 2, num: "02", title: "Escola Master", city: "São Mateus", state: "ES", segment: "Comercial", kwp: "139,00", geracao: "17.000", modulos: "403", economia: "13.770", image: "/Projetos/escolamaster.jpg", lat: -18.7100, lng: -39.8650 },
   { id: 3, num: "03", title: "Proteinorte", city: "Linhares", state: "ES", segment: "Industrial", kwp: "399,84", geracao: "47.980", modulos: "784", economia: "35.000", image: "/Projetos/proteinorte.jpg", lat: -19.3919, lng: -40.0719 },
-  { id: 4, num: "04", title: "Renato CÃ©sar Pimenta Maia", city: "Nova VenÃ©cia", state: "ES", segment: "Residencial", kwp: "41,31", geracao: "4.900", modulos: "81", economia: "3.577", image: "/Projetos/renatocesar.jpg", lat: -18.7106, lng: -40.4014 },
-  { id: 5, num: "05", title: "Hotel Ibis Styles", city: "SÃ£o Mateus", state: "ES", segment: "Hotelaria", kwp: "140,80", geracao: "17.230", modulos: "408", economia: "13.959", image: "/Projetos/hotelibis.jpg", lat: -18.7240, lng: -39.8540 },
+  { id: 4, num: "04", title: "Renato César Pimenta Maia", city: "Nova Venécia", state: "ES", segment: "Residencial", kwp: "41,31", geracao: "4.900", modulos: "81", economia: "3.577", image: "/Projetos/renatocesar.jpg", lat: -18.7106, lng: -40.4014 },
+  { id: 5, num: "05", title: "Hotel Ibis Styles", city: "São Mateus", state: "ES", segment: "Hotelaria", kwp: "140,80", geracao: "17.230", modulos: "408", economia: "13.959", image: "/Projetos/hotelibis.jpg", lat: -18.7240, lng: -39.8540 },
   { id: 6, num: "06", title: "Brasigran", city: "Serra", state: "ES", segment: "Industrial", kwp: "466,56", geracao: "55.987", modulos: "1.296", economia: "31.700", image: "/Projetos/brasigran.jpg", lat: -20.1289, lng: -40.3074 },
-  { id: 7, num: "07", title: "Vila Cizinho", city: "ConceiÃ§Ã£o da Barra", state: "ES", segment: "Residencial", kwp: "10,20", geracao: "1.258", modulos: "20", economia: "1.045", image: "/Projetos/vilacizino.jpg", lat: -18.5856, lng: -39.7339 },
+  { id: 7, num: "07", title: "Vila Cizinho", city: "Conceição da Barra", state: "ES", segment: "Residencial", kwp: "10,20", geracao: "1.258", modulos: "20", economia: "1.045", image: "/Projetos/vilacizino.jpg", lat: -18.5856, lng: -39.7339 },
   { id: 8, num: "08", title: "Posto Flecha", city: "Itamaraju", state: "BA", segment: "Comercial", kwp: "140,14", geracao: "16.625", modulos: "308", economia: "13.466", image: "/Projetos/postoflecha.jpg", lat: -17.0387, lng: -39.5295 },
   { id: 9, num: "09", title: "Rally Pneus", city: "Linhares", state: "ES", segment: "Comercial", kwp: "105,60", geracao: "12.618", modulos: "207", economia: "10.220", image: "/Projetos/rallypenus.jpg", lat: -19.4000, lng: -40.0650 },
-  { id: 10, num: "10", title: "FrigorÃ­fico Montanha", city: "Montanha", state: "ES", segment: "Industrial", kwp: "141,90", geracao: "17.000", modulos: "258", economia: "13.700", image: "/Projetos/frigorificomontanha.jpg", lat: -18.1283, lng: -40.3697 },
+  { id: 10, num: "10", title: "Frigorífico Montanha", city: "Montanha", state: "ES", segment: "Industrial", kwp: "141,90", geracao: "17.000", modulos: "258", economia: "13.700", image: "/Projetos/frigorificomontanha.jpg", lat: -18.1283, lng: -40.3697 },
 ];
 
 const FILTERS = [
   { value: "all", label: "Todos" },
-  { value: "ES", label: "EspÃ­rito Santo" },
+  { value: "ES", label: "Espírito Santo" },
   { value: "BA", label: "Bahia" },
   { value: "Residencial", label: "Residencial" },
   { value: "Comercial", label: "Comercial" },
@@ -56,9 +56,9 @@ const FILTERS = [
   { value: "Hotelaria", label: "Hotelaria" },
 ];
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ────────────────────────────────────────────────────────────
    FADE IN HOOK
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+   ──────────────────────────────────────────────────────────── */
 
 function useFadeIn() {
   const ref = useRef<HTMLDivElement>(null);
@@ -93,9 +93,9 @@ function FadeIn({ children, className, delay = 0 }: { children: React.ReactNode;
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ────────────────────────────────────────────────────────────
    COMPONENT
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+   ──────────────────────────────────────────────────────────── */
 
 export default function Portfolio() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -116,9 +116,9 @@ export default function Portfolio() {
     <>
       <section id="portfolio">
 
-        {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+        {/* ════════════════════════════════════════════
             HERO
-            â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+            ════════════════════════════════════════════ */}
         <div className="relative min-h-[70vh] flex items-end overflow-hidden">
           <Image
             src="/painelportifolio.jpg"
@@ -147,7 +147,7 @@ export default function Portfolio() {
                   textTransform: "uppercase",
                 }}
               >
-                â€” PortfÃ³lio
+                — Portfólio
               </div>
             </FadeIn>
 
@@ -186,22 +186,22 @@ export default function Portfolio() {
                   color: "rgba(255,255,255,0.80)",
                 }}
               >
-                Cada instalaÃ§Ã£o Ã© dimensionada para o porte, consumo e topografia do cliente â€” engenharia desenhada na ME, executada em todo EspÃ­rito Santo e sul da Bahia.
+                Cada instalação é dimensionada para o porte, consumo e topografia do cliente — engenharia desenhada na ME, executada em todo Espírito Santo e sul da Bahia.
               </p>
             </FadeIn>
           </div>
         </div>
 
-        {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+        {/* ════════════════════════════════════════════
             STATS BAR
-            â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+            ════════════════════════════════════════════ */}
         <div className="border-y-2" style={{ background: "#fff", borderColor: "#141410" }}>
           <div className="max-w-7xl mx-auto px-6 lg:px-12 py-10 lg:py-14">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8">
               {[
                 { value: PROJECTS.length.toString().padStart(2, "0"), label: "Projetos executados" },
-                { value: `${Math.round(totalKwp)}+`, unit: "kWp", label: "PotÃªncia instalada" },
-                { value: totalModulos.toLocaleString("pt-BR"), label: "MÃ³dulos instalados" },
+                { value: `${Math.round(totalKwp)}+`, unit: "kWp", label: "Potência instalada" },
+                { value: totalModulos.toLocaleString("pt-BR"), label: "Módulos instalados" },
                 { value: "ES + BA", label: "Estados atendidos" },
               ].map((s, i) => (
                 <FadeIn key={s.label} delay={i * 0.05}>
@@ -243,9 +243,9 @@ export default function Portfolio() {
           </div>
         </div>
 
-        {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+        {/* ════════════════════════════════════════════
             FILTERS + MAP + LIST
-            â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+            ════════════════════════════════════════════ */}
         <div style={{ background: "#FAFAF7" }}>
           <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-20">
 
@@ -264,7 +264,7 @@ export default function Portfolio() {
                       textTransform: "uppercase",
                     }}
                   >
-                    â€” Explore
+                    — Explore
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {FILTERS.map((f) => {
@@ -315,7 +315,7 @@ export default function Portfolio() {
                   background: "#fff",
                 }}
               >
-                {/* List â€” segundo no mobile, primeiro no desktop */}
+                {/* List — segundo no mobile, primeiro no desktop */}
                 <div
                   className="overflow-y-auto max-h-[400px] lg:max-h-[640px] lg:border-r order-2 lg:order-1 border-t lg:border-t-0"
                   style={{ borderColor: "#141410" }}
@@ -356,7 +356,7 @@ export default function Portfolio() {
                               color: isActive ? "#6FB8EE" : "#00529B",
                             }}
                           >
-                            P-{p.num} Â· {p.segment}
+                            P-{p.num} · {p.segment}
                           </span>
                           <span
                             style={{
@@ -397,11 +397,11 @@ export default function Portfolio() {
                         >
                           <MapPin size={11} strokeWidth={2.5} />
                           <span>{p.city}</span>
-                          <span className="opacity-50">Â·</span>
+                          <span className="opacity-50">·</span>
                           <span style={{ fontWeight: 700 }}>{p.kwp} kWp</span>
-                          <span className="opacity-50">Â·</span>
+                          <span className="opacity-50">·</span>
                           <span style={{ color: isActive ? "#6FB8EE" : "#00529B", fontWeight: 800 }}>
-                            R$ {p.economia}/mÃªs
+                            R$ {p.economia}/mês
                           </span>
                         </div>
                       </button>
@@ -409,7 +409,7 @@ export default function Portfolio() {
                   })}
                 </div>
 
-                {/* Map â€” Leaflet real (primeiro no mobile, segundo no desktop) */}
+                {/* Map — Leaflet real (primeiro no mobile, segundo no desktop) */}
                 <div className="relative lg:max-h-[640px] h-[420px] lg:h-auto lg:min-h-[640px] order-1 lg:order-2">
                   <PortfolioMap
                     projects={filtered}
@@ -429,14 +429,14 @@ export default function Portfolio() {
                 letterSpacing: "0.05em",
               }}
             >
-              Posicionamento esquemÃ¡tico Â· Passe o mouse ou clique nos pinos para explorar
+              Posicionamento esquemático · Passe o mouse ou clique nos pinos para explorar
             </p>
           </div>
         </div>
 
-        {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            FINAL CTA â€” verde brand sÃ³lido, distinto da cream e do footer
-            â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+        {/* ════════════════════════════════════════════
+            FINAL CTA — verde brand sólido, distinto da cream e do footer
+            ════════════════════════════════════════════ */}
         <div className="relative overflow-hidden" style={{ background: "#00529B" }}>
           <div
             className="pointer-events-none absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full"
@@ -462,7 +462,7 @@ export default function Portfolio() {
                       textTransform: "uppercase",
                     }}
                   >
-                    â€” PrÃ³ximo passo
+                    — Próximo passo
                   </div>
                   <h2
                     style={{
@@ -484,7 +484,7 @@ export default function Portfolio() {
                         color: "#6FB8EE",
                       }}
                     >
-                      prÃ³ximo no mapa.
+                      próximo no mapa.
                     </em>
                   </h2>
                 </FadeIn>
@@ -497,7 +497,7 @@ export default function Portfolio() {
                       color: "rgba(255,255,255,0.85)",
                     }}
                   >
-                    FaÃ§a uma simulaÃ§Ã£o gratuita e veja o potencial solar do seu imÃ³vel.
+                    Faça uma simulação gratuita e veja o potencial solar do seu imóvel.
                   </p>
                 </FadeIn>
               </div>
@@ -517,7 +517,7 @@ export default function Portfolio() {
                       boxShadow: "0 12px 32px rgba(10,31,56,0.30)",
                     }}
                   >
-                    Iniciar simulaÃ§Ã£o
+                    Iniciar simulação
                     <ArrowRight size={15} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-1" />
                   </button>
                 </FadeIn>

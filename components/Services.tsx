@@ -1,15 +1,15 @@
-use client";
+"use client";
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import SimulationModal from "./SimulationModal";
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ────────────────────────────────────────────────────────────
    DATA
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+   ──────────────────────────────────────────────────────────── */
 
-const segments = ["Casa", "Agro", "ComÃ©rcio", "IndÃºstria"];
+const segments = ["Casa", "Agro", "Comércio", "Indústria"];
 
 type Service = {
   num: string;
@@ -22,40 +22,40 @@ const services: Service[] = [
     num: "01",
     title: "Projetos Otimizados",
     paragraphs: [
-      "Temos engenheiros especializados em energia solar para realizar o seu projeto com qualidade. Assim vocÃª pode ter tranquilidade no investimento que estÃ¡ fazendo.",
-      "Nossa equipe farÃ¡ o levantamento detalhado das suas instalaÃ§Ãµes atuais ou do projeto do imÃ³vel que vocÃª estÃ¡ construindo. TambÃ©m Ã© realizada uma anÃ¡lise estatÃ­stica da radiaÃ§Ã£o solar no local da sua instalaÃ§Ã£o e consideradas possÃ­veis perdas, como outros prÃ©dios mais altos, Ã¡rvores e efeitos da temperatura local.",
-      "Ao final serÃ¡ emitida uma ART junto ao CREA para te dar ainda mais seguranÃ§a. TambÃ©m faremos todo o procedimento burocrÃ¡tico com a concessionÃ¡ria de energia local para a liberaÃ§Ã£o de funcionamento do seu sistema de energia solar.",
+      "Temos engenheiros especializados em energia solar para realizar o seu projeto com qualidade. Assim você pode ter tranquilidade no investimento que está fazendo.",
+      "Nossa equipe fará o levantamento detalhado das suas instalações atuais ou do projeto do imóvel que você está construindo. Também é realizada uma análise estatística da radiação solar no local da sua instalação e consideradas possíveis perdas, como outros prédios mais altos, árvores e efeitos da temperatura local.",
+      "Ao final será emitida uma ART junto ao CREA para te dar ainda mais segurança. Também faremos todo o procedimento burocrático com a concessionária de energia local para a liberação de funcionamento do seu sistema de energia solar.",
     ],
   },
   {
     num: "02",
-    title: "InstalaÃ§Ã£o Personalizada",
+    title: "Instalação Personalizada",
     paragraphs: [
-      "Trabalhamos com instalaÃ§Ãµes de energia solar residencial, comercial, industrial e para seu agronegÃ³cio. A instalaÃ§Ã£o pode ser feita sobre qualquer tipo de telha, laje ou fixadas diretamente no solo. TambÃ©m podemos utilizar as prÃ³prias placas fotovoltaicas como cobertura para veÃ­culos.",
-      "A equipe que vai executar a instalaÃ§Ã£o do seu sistema Ã© altamente treinada e capacitada para esse tipo de serviÃ§o. AlÃ©m disso, antes de iniciarmos a instalaÃ§Ã£o, um de nossos engenheiros serÃ¡ designado para supervisionar o serviÃ§o. Assim, garantimos uma instalaÃ§Ã£o de qualidade para que o seu sistema dure todos os longos anos que vocÃª espera.",
+      "Trabalhamos com instalações de energia solar residencial, comercial, industrial e para seu agronegócio. A instalação pode ser feita sobre qualquer tipo de telha, laje ou fixadas diretamente no solo. Também podemos utilizar as próprias placas fotovoltaicas como cobertura para veículos.",
+      "A equipe que vai executar a instalação do seu sistema é altamente treinada e capacitada para esse tipo de serviço. Além disso, antes de iniciarmos a instalação, um de nossos engenheiros será designado para supervisionar o serviço. Assim, garantimos uma instalação de qualidade para que o seu sistema dure todos os longos anos que você espera.",
     ],
   },
   {
     num: "03",
     title: "Equipamentos Certificados",
     paragraphs: [
-      "Os equipamentos utilizados pela ME Energia Solar sÃ£o cuidadosamente escolhidos para terem a durabilidade desejada.",
-      "SÃ³ utilizamos mÃ³dulos, inversores e estruturas de marcas de qualidade comprovada da marca WEG.",
-      "Em parceria com a WEG S.A., a ME Ã© hoje o maior integrador WEG do estado do EspÃ­rito Santo e um dos maiores do Brasil.",
+      "Os equipamentos utilizados pela ME Energia Solar são cuidadosamente escolhidos para terem a durabilidade desejada.",
+      "Só utilizamos módulos, inversores e estruturas de marcas de qualidade comprovada da marca WEG.",
+      "Em parceria com a WEG S.A., a ME é hoje o maior integrador WEG do estado do Espírito Santo e um dos maiores do Brasil.",
     ],
   },
 ];
 
 const monitoringIntro = [
   "Entregamos uma plataforma de monitoramento exclusiva, que permite acompanhar em tempo real a performance e funcionamento do sistema de energia solar.",
-  "Temos tambÃ©m uma equipe de suporte dedicada para esclarecer dÃºvidas, garantindo que nenhum detalhe importante fique para trÃ¡s.",
+  "Temos também uma equipe de suporte dedicada para esclarecer dúvidas, garantindo que nenhum detalhe importante fique para trás.",
 ];
 
 const monitoringFeatures = [
   {
     num: "I",
-    title: "GeraÃ§Ã£o de Energia",
-    text: "ConheÃ§a todos os detalhes das suas usinas fotovoltaicas como produÃ§Ã£o, status e eventos.",
+    title: "Geração de Energia",
+    text: "Conheça todos os detalhes das suas usinas fotovoltaicas como produção, status e eventos.",
   },
   {
     num: "II",
@@ -64,19 +64,19 @@ const monitoringFeatures = [
   },
   {
     num: "III",
-    title: "Consumo e injeÃ§Ã£o na rede",
-    text: "Saiba a quantidade de energia consumida da rede e injetada na rede e a mediÃ§Ã£o lÃ­quida antes de a fatura de energia chegar.",
+    title: "Consumo e injeção na rede",
+    text: "Saiba a quantidade de energia consumida da rede e injetada na rede e a medição líquida antes de a fatura de energia chegar.",
   },
   {
     num: "IV",
-    title: "ManutenÃ§Ã£o otimizada",
-    text: "Realize diagnÃ³sticos de forma remota. Desloque a equipe de manutenÃ§Ã£o somente quando for necessÃ¡rio.",
+    title: "Manutenção otimizada",
+    text: "Realize diagnósticos de forma remota. Desloque a equipe de manutenção somente quando for necessário.",
   },
 ];
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ────────────────────────────────────────────────────────────
    FADE IN HOOK
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+   ──────────────────────────────────────────────────────────── */
 
 function useFadeIn() {
   const ref = useRef<HTMLDivElement>(null);
@@ -111,9 +111,9 @@ function FadeIn({ children, className, delay = 0 }: { children: React.ReactNode;
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ────────────────────────────────────────────────────────────
    COMPONENT
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+   ──────────────────────────────────────────────────────────── */
 
 export default function Services() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -122,13 +122,13 @@ export default function Services() {
     <>
       <section id="servicos">
 
-        {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+        {/* ════════════════════════════════════════════
             HERO simples
-            â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+            ════════════════════════════════════════════ */}
         <div id="home" className="relative min-h-[60vh] flex items-end overflow-hidden">
           <Image
             src="/servico.jpeg"
-            alt="ME Energia Solar â€” ServiÃ§os"
+            alt="ME Energia Solar — Serviços"
             fill
             className="object-cover"
             priority
@@ -153,7 +153,7 @@ export default function Services() {
                   textTransform: "uppercase",
                 }}
               >
-                â€” ServiÃ§os
+                — Serviços
               </div>
             </FadeIn>
 
@@ -170,15 +170,15 @@ export default function Services() {
                   maxWidth: "880px",
                 }}
               >
-                Temos a soluÃ§Ã£o completa em <em style={{ fontStyle: "italic", color: "#6FB8EE" }}>energia solar</em> fotovoltaica.
+                Temos a solução completa em <em style={{ fontStyle: "italic", color: "#6FB8EE" }}>energia solar</em> fotovoltaica.
               </h1>
             </FadeIn>
           </div>
         </div>
 
-        {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+        {/* ════════════════════════════════════════════
             SEGMENTS BAR
-            â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+            ════════════════════════════════════════════ */}
         <div className="border-y" style={{ background: "#fff", borderColor: "#141410", borderTopWidth: "1.5px", borderBottomWidth: "1.5px" }}>
           <div className="max-w-7xl mx-auto px-6 lg:px-12 py-7">
             <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 lg:gap-x-12">
@@ -205,9 +205,9 @@ export default function Services() {
           </div>
         </div>
 
-        {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            SERVIÃ‡OS â€” texto editorial
-            â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+        {/* ════════════════════════════════════════════
+            SERVIÇOS — texto editorial
+            ════════════════════════════════════════════ */}
         <div style={{ background: "#FAFAF7" }}>
           <div className="max-w-3xl mx-auto px-6 lg:px-8 py-20 md:py-28">
 
@@ -240,7 +240,7 @@ export default function Services() {
                         textTransform: "uppercase",
                       }}
                     >
-                      ServiÃ§o
+                      Serviço
                     </span>
                   </div>
 
@@ -282,9 +282,9 @@ export default function Services() {
           </div>
         </div>
 
-        {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+        {/* ════════════════════════════════════════════
             MONITORAMENTO E SUPORTE
-            â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+            ════════════════════════════════════════════ */}
         <div style={{ background: "#fff" }}>
           <div className="max-w-3xl mx-auto px-6 lg:px-8 py-20 md:py-28">
             <FadeIn>
@@ -311,7 +311,7 @@ export default function Services() {
                     textTransform: "uppercase",
                   }}
                 >
-                  ServiÃ§o
+                  Serviço
                 </span>
               </div>
 
@@ -349,7 +349,7 @@ export default function Services() {
               </div>
             </FadeIn>
 
-            {/* 4 sub-features â€” lista numerada simples */}
+            {/* 4 sub-features — lista numerada simples */}
             <div className="space-y-8 lg:space-y-10 pt-8 border-t" style={{ borderColor: "#C9C2B4" }}>
               {monitoringFeatures.map((f, i) => (
                 <FadeIn key={f.num} delay={i * 0.04}>
@@ -403,9 +403,9 @@ export default function Services() {
           </div>
         </div>
 
-        {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-            FINAL CTA â€” verde brand
-            â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+        {/* ════════════════════════════════════════════
+            FINAL CTA — verde brand
+            ════════════════════════════════════════════ */}
         <div className="relative overflow-hidden" style={{ background: "#00529B" }}>
           <div
             className="pointer-events-none absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full"
@@ -431,7 +431,7 @@ export default function Services() {
                       textTransform: "uppercase",
                     }}
                   >
-                    â€” PrÃ³ximo passo
+                    — Próximo passo
                   </div>
                   <h2
                     style={{
@@ -446,7 +446,7 @@ export default function Services() {
                     }}
                   >
                     Pronto para gerar a sua{" "}
-                    <em style={{ fontStyle: "italic", color: "#6FB8EE" }}>prÃ³pria energia?</em>
+                    <em style={{ fontStyle: "italic", color: "#6FB8EE" }}>própria energia?</em>
                   </h2>
                 </FadeIn>
                 <FadeIn delay={0.1}>
@@ -458,7 +458,7 @@ export default function Services() {
                       color: "rgba(255,255,255,0.85)",
                     }}
                   >
-                    FaÃ§a uma simulaÃ§Ã£o gratuita e descubra quanto vocÃª pode economizar com energia solar.
+                    Faça uma simulação gratuita e descubra quanto você pode economizar com energia solar.
                   </p>
                 </FadeIn>
               </div>
@@ -478,7 +478,7 @@ export default function Services() {
                       boxShadow: "0 12px 32px rgba(10,31,56,0.30)",
                     }}
                   >
-                    Iniciar simulaÃ§Ã£o
+                    Iniciar simulação
                     <ArrowRight size={15} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-1" />
                   </button>
                 </FadeIn>

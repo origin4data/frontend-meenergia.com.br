@@ -1,4 +1,4 @@
-use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -6,9 +6,9 @@ import Link from "next/link";
 
 const navLinks = [
   { label: "Sobre", href: "/#sobre" },
-  { label: "ServiÃ§os", href: "/servicos" },
-  { label: "PortfÃ³lio", href: "/portfolio" },
-  { label: "OrÃ§amento", href: "/#orcamento" },
+  { label: "Serviços", href: "/servicos" },
+  { label: "Portfólio", href: "/portfolio" },
+  { label: "Orçamento", href: "/#orcamento" },
 ];
 
 const PHONE = "+55 27 99721-9703";
@@ -69,7 +69,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20 gap-6">
 
-          {/* â”€â”€ Logo â”€â”€ */}
+          {/* ── Logo ── */}
           <Link href="/#home" className="shrink-0">
             <Image
               src="/logo-mundo-eletrico.png"
@@ -82,7 +82,7 @@ export default function Header() {
             />
           </Link>
 
-          {/* â”€â”€ Desktop Navigation â”€â”€ */}
+          {/* ── Desktop Navigation ── */}
           <nav className="hidden lg:flex items-center gap-1 flex-1 justify-center">
             {navLinks.map((link) => (
               <Link
@@ -106,7 +106,7 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* â”€â”€ Right: Contacts + CTA â”€â”€ */}
+          {/* ── Right: Contacts + CTA ── */}
           <div className="hidden lg:flex items-center gap-4 shrink-0">
 
             <a
@@ -146,7 +146,7 @@ export default function Header() {
             </a>
           </div>
 
-          {/* â”€â”€ Mobile Hamburger â”€â”€ */}
+          {/* ── Mobile Hamburger ── */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 rounded-lg transition-colors"
@@ -172,7 +172,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* â”€â”€ Mobile Menu â”€â”€ */}
+      {/* ── Mobile Menu ── */}
       <div
         className="lg:hidden overflow-hidden transition-all duration-300"
         style={{

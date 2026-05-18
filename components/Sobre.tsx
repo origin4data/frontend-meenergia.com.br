@@ -1,20 +1,20 @@
-use client";
+"use client";
 
 import { useState } from "react";
 import Image from "next/image";
 import SimulationModal from "./SimulationModal";
 
 const stats = [
-  { kicker: "FundaÃ§Ã£o", value: "1991", caption: "trÃªs dÃ©cadas de campo" },
-  { kicker: "Sedes", value: "03", caption: "SÃ£o Mateus, Linhares, Tx. de Freitas" },
+  { kicker: "Fundação", value: "1991", caption: "três décadas de campo" },
+  { kicker: "Sedes", value: "03", caption: "São Mateus, Linhares, Tx. de Freitas" },
   { kicker: "Cobertura", value: "ES + BA", caption: "todo o Sudeste" },
-  { kicker: "Integrador", value: "WEG", caption: "maior do EspÃ­rito Santo" },
+  { kicker: "Integrador", value: "WEG", caption: "maior do Espírito Santo" },
 ];
 
 const principios = [
-  { numero: "I", titulo: "Suporte tÃ©cnico", texto: "Engenheiros e eletrotÃ©cnicos prÃ³prios para projetos completos." },
-  { numero: "II", titulo: "Multi-segmento", texto: "Casas, comÃ©rcios, indÃºstrias e o agronegÃ³cio." },
-  { numero: "III", titulo: "Acessibilidade", texto: "CondiÃ§Ãµes diferenciadas para cada porte de cliente." },
+  { numero: "I", titulo: "Suporte técnico", texto: "Engenheiros e eletrotécnicos próprios para projetos completos." },
+  { numero: "II", titulo: "Multi-segmento", texto: "Casas, comércios, indústrias e o agronegócio." },
+  { numero: "III", titulo: "Acessibilidade", texto: "Condições diferenciadas para cada porte de cliente." },
 ];
 
 export default function Sobre() {
@@ -41,7 +41,7 @@ export default function Sobre() {
 
       <div className="relative max-w-[1320px] mx-auto px-6 lg:px-12">
 
-        {/* â”€â”€ Top masthead â”€â”€ */}
+        {/* ── Top masthead ── */}
         <div className="flex items-end justify-between mb-16 lg:mb-24 gap-6">
           <div className="flex items-baseline gap-4 lg:gap-6">
             <span
@@ -71,14 +71,14 @@ export default function Sobre() {
               fontFamily: "var(--font-mono, monospace)",
             }}
           >
-            EdiÃ§Ã£o Especial Â· Solar
+            Edição Especial · Solar
           </span>
         </div>
 
-        {/* â”€â”€ Hero editorial: ano massivo + headline â”€â”€ */}
+        {/* ── Hero editorial: ano massivo + headline ── */}
         <div className="grid grid-cols-12 gap-x-6 gap-y-10 mb-20 lg:mb-28">
 
-          {/* Year â€” coluna 1-5 */}
+          {/* Year — coluna 1-5 */}
           <div className="col-span-12 md:col-span-5 lg:col-span-5 relative">
             <div className="relative">
               <span
@@ -113,11 +113,11 @@ export default function Sobre() {
                 lineHeight: 1.4,
               }}
             >
-              o ano em que decidimos transformar luz em independÃªncia.
+              o ano em que decidimos transformar luz em independência.
             </p>
           </div>
 
-          {/* Headline â€” coluna 6-12 */}
+          {/* Headline — coluna 6-12 */}
           <div className="col-span-12 md:col-span-7 lg:col-span-7 flex flex-col justify-end">
             <h2
               style={{
@@ -151,10 +151,10 @@ export default function Sobre() {
           </div>
         </div>
 
-        {/* â”€â”€ Corpo editorial: 2 colunas asimÃ©tricas â”€â”€ */}
+        {/* ── Corpo editorial: 2 colunas asimétricas ── */}
         <div className="grid grid-cols-12 gap-x-6 lg:gap-x-12 gap-y-16 mb-24 lg:mb-32">
 
-          {/* Coluna texto â€” 7 cols */}
+          {/* Coluna texto — 7 cols */}
           <div className="col-span-12 lg:col-span-7">
             {/* Drop cap paragraph */}
             <p
@@ -178,7 +178,7 @@ export default function Sobre() {
               >
                 T
               </span>
-              rabalhando no setor de energia solar desde 1991, a ME atende clientes de todos os portes com eficiÃªncia, competitividade, qualidade e seguranÃ§a. Da residÃªncia ao agronegÃ³cio, do telhado ao terreno â€” uma operaÃ§Ã£o completa, feita por gente que entende de sol.
+              rabalhando no setor de energia solar desde 1991, a ME atende clientes de todos os portes com eficiência, competitividade, qualidade e segurança. Da residência ao agronegócio, do telhado ao terreno — uma operação completa, feita por gente que entende de sol.
             </p>
 
             <p
@@ -189,7 +189,7 @@ export default function Sobre() {
                 color: "#3A3530",
               }}
             >
-              Com sede em <strong style={{ fontWeight: 600, color: "#1A1A14" }}>SÃ£o Mateus (ES)</strong> e filiais em <strong style={{ fontWeight: 600, color: "#1A1A14" }}>Linhares (ES)</strong> e <strong style={{ fontWeight: 600, color: "#1A1A14" }}>Teixeira de Freitas (BA)</strong>, cobrimos todo o EspÃ­rito Santo e o sul da Bahia com a mais moderna linha fotovoltaica do mercado.
+              Com sede em <strong style={{ fontWeight: 600, color: "#1A1A14" }}>São Mateus (ES)</strong> e filiais em <strong style={{ fontWeight: 600, color: "#1A1A14" }}>Linhares (ES)</strong> e <strong style={{ fontWeight: 600, color: "#1A1A14" }}>Teixeira de Freitas (BA)</strong>, cobrimos todo o Espírito Santo e o sul da Bahia com a mais moderna linha fotovoltaica do mercado.
             </p>
 
             {/* Pull quote */}
@@ -206,7 +206,7 @@ export default function Sobre() {
                   letterSpacing: "-0.01em",
                 }}
               >
-                &ldquo;Mais que economia. ConstruÃ­mos um futuro com energia limpa para as prÃ³ximas geraÃ§Ãµes.&rdquo;
+                &ldquo;Mais que economia. Construímos um futuro com energia limpa para as próximas gerações.&rdquo;
               </p>
               <footer
                 className="mt-3 text-[11px] uppercase tracking-[0.22em]"
@@ -215,7 +215,7 @@ export default function Sobre() {
                   color: "#7A7565",
                 }}
               >
-                â€” PrincÃ­pio Fundador
+                — Princípio Fundador
               </footer>
             </blockquote>
 
@@ -238,7 +238,7 @@ export default function Sobre() {
                   borderBottom: "1px solid #1A1A14",
                 }}
               >
-                Iniciar SimulaÃ§Ã£o
+                Iniciar Simulação
               </span>
               <span
                 className="inline-flex items-center justify-center rounded-full transition-transform duration-300 group-hover:translate-x-1"
@@ -256,7 +256,7 @@ export default function Sobre() {
             </button>
           </div>
 
-          {/* Coluna imagem/vÃ­deo â€” 5 cols, com offset */}
+          {/* Coluna imagem/vídeo — 5 cols, com offset */}
           <div className="col-span-12 lg:col-span-5 lg:pt-24">
             <figure className="relative">
               <div
@@ -269,7 +269,7 @@ export default function Sobre() {
                   <>
                     <Image
                       src="/servicos/placa-solar-pousada-mundo-eletrico-site-2023.jpg"
-                      alt="PainÃ©is solares fotovoltaicos instalados pela ME Energia"
+                      alt="Painéis solares fotovoltaicos instalados pela ME Energia"
                       fill
                       sizes="(max-width: 1024px) 100vw, 40vw"
                       className="object-cover"
@@ -280,7 +280,7 @@ export default function Sobre() {
                       onClick={() => setVideoActive(true)}
                       className="absolute inset-0 flex items-center justify-center group"
                       style={{ background: "rgba(26,26,20,0.18)" }}
-                      aria-label="Reproduzir vÃ­deo"
+                      aria-label="Reproduzir vídeo"
                     >
                       <div
                         className="flex items-center justify-center transition-all duration-300 group-hover:scale-110"
@@ -308,7 +308,7 @@ export default function Sobre() {
                         backdropFilter: "blur(6px)",
                       }}
                     >
-                      Frame 01 Â· PainÃ©is
+                      Frame 01 · Painéis
                     </div>
                   </>
                 ) : (
@@ -323,7 +323,7 @@ export default function Sobre() {
                 )}
               </div>
 
-              {/* Caption italic â€” magazine style */}
+              {/* Caption italic — magazine style */}
               <figcaption className="mt-4 flex items-start gap-3">
                 <span
                   className="text-[10px] uppercase tracking-[0.3em] mt-1 shrink-0"
@@ -342,14 +342,14 @@ export default function Sobre() {
                     color: "#3A3530",
                   }}
                 >
-                  PainÃ©is solares fotovoltaicos WEG em instalaÃ§Ã£o real. Toque para reproduzir o vÃ­deo.
+                  Painéis solares fotovoltaicos WEG em instalação real. Toque para reproduzir o vídeo.
                 </p>
               </figcaption>
             </figure>
           </div>
         </div>
 
-        {/* â”€â”€ Stats strip â€” masthead horizontal â”€â”€ */}
+        {/* ── Stats strip — masthead horizontal ── */}
         <div
           className="border-t border-b py-10 lg:py-14 mb-24 lg:mb-32"
           style={{ borderColor: "#1A1A14" }}
@@ -396,7 +396,7 @@ export default function Sobre() {
           </div>
         </div>
 
-        {/* â”€â”€ Bloco WEG: tratamento diferente, fundo escuro â”€â”€ */}
+        {/* ── Bloco WEG: tratamento diferente, fundo escuro ── */}
         <div
           className="relative overflow-hidden p-8 md:p-12 lg:p-16"
           style={{
@@ -405,7 +405,7 @@ export default function Sobre() {
             borderRadius: "2px",
           }}
         >
-          {/* DecoraÃ§Ã£o */}
+          {/* Decoração */}
           <div
             className="absolute -top-24 -right-24 w-72 h-72 rounded-full"
             style={{
@@ -423,10 +423,10 @@ export default function Sobre() {
                   color: "#6FB8EE",
                 }}
               >
-                Cap. 02 Â· Parceria
+                Cap. 02 · Parceria
               </div>
 
-              {/* Logos lockup: ME Ã— WEG */}
+              {/* Logos lockup: ME × WEG */}
               <div className="flex items-center gap-4 mb-5">
                 {/* ME logo */}
                 <div className="shrink-0">
@@ -439,7 +439,7 @@ export default function Sobre() {
                   />
                 </div>
 
-                {/* Ã— separator */}
+                {/* × separator */}
                 <span
                   style={{
                     fontFamily: "var(--font-serif, serif)",
@@ -450,7 +450,7 @@ export default function Sobre() {
                     lineHeight: 1,
                   }}
                 >
-                  Ã—
+                  ×
                 </span>
 
                 {/* WEG logo */}
@@ -495,7 +495,7 @@ export default function Sobre() {
                   color: "rgba(244,239,230,0.92)",
                 }}
               >
-                Em parceria com a <strong style={{ fontWeight: 600, color: "#fff" }}>WEG S.A.</strong>, somos hoje o <strong style={{ fontWeight: 600, color: "#fff" }}>maior integrador WEG do EspÃ­rito Santo</strong> e um dos maiores do Brasil. Equipe formada por engenheiros e eletrotÃ©cnicos com experiÃªncia em sistemas <em style={{ fontFamily: "var(--font-serif, serif)" }}>On-Grid</em> e <em style={{ fontFamily: "var(--font-serif, serif)" }}>Off-Grid</em> â€” residenciais, comerciais e industriais.
+                Em parceria com a <strong style={{ fontWeight: 600, color: "#fff" }}>WEG S.A.</strong>, somos hoje o <strong style={{ fontWeight: 600, color: "#fff" }}>maior integrador WEG do Espírito Santo</strong> e um dos maiores do Brasil. Equipe formada por engenheiros e eletrotécnicos com experiência em sistemas <em style={{ fontFamily: "var(--font-serif, serif)" }}>On-Grid</em> e <em style={{ fontFamily: "var(--font-serif, serif)" }}>Off-Grid</em> — residenciais, comerciais e industriais.
               </p>
               <p
                 className="text-sm leading-relaxed"
@@ -505,11 +505,11 @@ export default function Sobre() {
                   color: "rgba(244,239,230,0.65)",
                 }}
               >
-                Trabalhamos dentro das normas de seguranÃ§a do trabalho, engenharia elÃ©trica e civil â€” princÃ­pios Ã©ticos antes de qualquer entrega.
+                Trabalhamos dentro das normas de segurança do trabalho, engenharia elétrica e civil — princípios éticos antes de qualquer entrega.
               </p>
             </div>
 
-            {/* PrincÃ­pios numerados */}
+            {/* Princípios numerados */}
             <div className="col-span-12 lg:col-span-3">
               <div
                 className="text-[10px] uppercase tracking-[0.32em] mb-5"
@@ -518,7 +518,7 @@ export default function Sobre() {
                   color: "rgba(244,239,230,0.55)",
                 }}
               >
-                PrincÃ­pios
+                Princípios
               </div>
               <ul className="space-y-5">
                 {principios.map((p) => (
