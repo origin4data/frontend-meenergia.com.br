@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import SimulationModal from "./SimulationModal";
+import Link from "next/link";
 
 const stats = [
   { kicker: "Fundação", value: "1991", caption: "três décadas de campo" },
@@ -18,7 +18,6 @@ const principios = [
 ];
 
 export default function Sobre() {
-  const [modalOpen, setModalOpen] = useState(false);
   const [videoActive, setVideoActive] = useState(false);
 
   return (
@@ -220,8 +219,8 @@ export default function Sobre() {
             </blockquote>
 
             {/* CTA editorial */}
-            <button
-              onClick={() => setModalOpen(true)}
+            <Link
+              href="/orcamento"
               className="group inline-flex items-center gap-3 mt-2 transition-all duration-300"
               style={{
                 fontFamily: "var(--font-mono, monospace)",
@@ -253,7 +252,7 @@ export default function Sobre() {
                   <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </span>
-            </button>
+            </Link>
           </div>
 
           {/* Coluna imagem/vídeo — 5 cols, com offset */}
@@ -268,7 +267,7 @@ export default function Sobre() {
                 {!videoActive ? (
                   <>
                     <Image
-                      src="/servicos/placa-solar-pousada-mundo-eletrico-site-2023.jpg"
+                      src="/Sobre/img/placa-solar-pousada-mundo-eletrico-site-2023.jpg"
                       alt="Painéis solares fotovoltaicos instalados pela ME Energia"
                       fill
                       sizes="(max-width: 1024px) 100vw, 40vw"
@@ -313,7 +312,7 @@ export default function Sobre() {
                   </>
                 ) : (
                   <video
-                    src="/placa.mp4"
+                    src="/Sobre/img/placa.mp4"
                     className="absolute inset-0 h-full w-full object-cover"
                     autoPlay
                     controls
@@ -415,7 +414,7 @@ export default function Sobre() {
 
           <div className="relative grid grid-cols-12 gap-x-6 gap-y-10">
             {/* Eyebrow + Lockup logos */}
-            <div className="col-span-12 lg:col-span-3">
+            <div className="col-span-12 lg:col-span-4">
               <div
                 className="text-[10px] uppercase tracking-[0.32em] mb-5"
                 style={{
@@ -486,7 +485,7 @@ export default function Sobre() {
             </div>
 
             {/* Texto */}
-            <div className="col-span-12 lg:col-span-6">
+            <div className="col-span-12 lg:col-span-5">
               <p
                 className="text-base lg:text-lg leading-relaxed mb-5"
                 style={{
@@ -565,7 +564,6 @@ export default function Sobre() {
         </div>
       </div>
 
-      <SimulationModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 }
