@@ -4,20 +4,20 @@ import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 
 const companies = [
-  { id: "aymores", description: "Aymores Embalagens", image: "/Empresas/Aymores-Embalagens.jpg" },
-  { id: "brasigran", description: "BrasiGran Granitos", image: "/Empresas/BrasiGran-Granitos.jpg" },
-  { id: "cescom", description: "Cescom Distribuidor", image: "/Empresas/Cescom-Distribuidor.jpg" },
-  { id: "damiani", description: "Damiani Grupo", image: "/Empresas/Damiani-grupo.jpg" },
-  { id: "gbj", description: "GBJ Metalmecanica", image: "/Empresas/GBJ-metalmecanica.jpg" },
-  { id: "ibis", description: "Ibis Styles", image: "/Empresas/Ibis-styles.jpg" },
-  { id: "master", description: "Master", image: "/Empresas/Master.jpg" },
-  { id: "multishow", description: "Multi Show Supermercados", image: "/Empresas/Multi-Show-Supermercados.jpg" },
-  { id: "norte-palace", description: "Norte Palace Hotel", image: "/Empresas/Norte-Palece-Hotel.png" },
-  { id: "polimix", description: "Polimix Concreto", image: "/Empresas/Polimix-concreto.jpg" },
-  { id: "protein-norte", description: "Protein Norte", image: "/Empresas/Protein-Norte.jpg" },
-  { id: "rio-doce", description: "Rio Doce Hospital", image: "/Empresas/Rio-Doce-Hospital.jpg" },
-  { id: "sao-rafael", description: "São Rafael Esquadrias", image: "/Empresas/Sao-Rafael-Esquadrias-Moveis-Decoracao.jpg" },
-  { id: "steffen", description: "Steffen Centro de Eventos", image: "/Empresas/Steffen-Centro-de-Eventos.jpg" },
+  { id: "aymores", description: "Aymores Embalagens", image: "/Empresas/img/Aymores-Embalagens.jpg" },
+  { id: "brasigran", description: "BrasiGran Granitos", image: "/Empresas/img/BrasiGran-Granitos.jpg" },
+  { id: "cescom", description: "Cescom Distribuidor", image: "/Empresas/img/Cescom-Distribuidor.jpg" },
+  { id: "damiani", description: "Damiani Grupo", image: "/Empresas/img/Damiani-grupo.jpg" },
+  { id: "gbj", description: "GBJ Metalmecanica", image: "/Empresas/img/GBJ-metalmecanica.jpg" },
+  { id: "ibis", description: "Ibis Styles", image: "/Empresas/img/Ibis-styles.jpg" },
+  { id: "master", description: "Master", image: "/Empresas/img/Master.jpg" },
+  { id: "multishow", description: "Multi Show Supermercados", image: "/Empresas/img/Multi-Show-Supermercados.jpg" },
+  { id: "norte-palace", description: "Norte Palace Hotel", image: "/Empresas/img/Norte-Palece-Hotel.png" },
+  { id: "polimix", description: "Polimix Concreto", image: "/Empresas/img/Polimix-concreto.jpg" },
+  { id: "protein-norte", description: "Protein Norte", image: "/Empresas/img/Protein-Norte.jpg" },
+  { id: "rio-doce", description: "Rio Doce Hospital", image: "/Empresas/img/Rio-Doce-Hospital.jpg" },
+  { id: "sao-rafael", description: "São Rafael Esquadrias", image: "/Empresas/img/Sao-Rafael-Esquadrias-Moveis-Decoracao.jpg" },
+  { id: "steffen", description: "Steffen Centro de Eventos", image: "/Empresas/img/Steffen-Centro-de-Eventos.jpg" },
 ];
 
 export default function CompaniesSlider() {
