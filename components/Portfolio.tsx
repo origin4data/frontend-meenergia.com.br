@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
+import { FadeIn } from "@/components/ui/FadeIn";
+import { Button } from "@/components/ui/Button";
 
 const PortfolioMap = dynamic(() => import("./PortfolioMap"), {
   ssr: false,
@@ -17,34 +18,7 @@ const PortfolioMap = dynamic(() => import("./PortfolioMap"), {
   ),
 });
 
-type Project = {
-  id: number;
-  num: string;
-  title: string;
-  city: string;
-  state: "ES" | "BA";
-  segment: "Residencial" | "Comercial" | "Industrial" | "Hotelaria";
-  kwp: string;
-  geracao: string;
-  modulos: string;
-  economia: string;
-  image: string;
-  lat: number;
-  lng: number;
-};
-
-const PROJECTS: Project[] = [
-  { id: 1, num: "01", title: "Alcides Guisolfi", city: "São Mateus", state: "ES", segment: "Residencial", kwp: "59,84", geracao: "7.230", modulos: "146", economia: "5.277", image: "/Portfolio/img/Projetos/alcidesguisolfi.jpg", lat: -18.7160, lng: -39.8587 },
-  { id: 2, num: "02", title: "Escola Master", city: "São Mateus", state: "ES", segment: "Comercial", kwp: "139,00", geracao: "17.000", modulos: "403", economia: "13.770", image: "/Portfolio/img/Projetos/escolamaster.jpg", lat: -18.7100, lng: -39.8650 },
-  { id: 3, num: "03", title: "Proteinorte", city: "Linhares", state: "ES", segment: "Industrial", kwp: "399,84", geracao: "47.980", modulos: "784", economia: "35.000", image: "/Portfolio/img/Projetos/proteinorte.jpg", lat: -19.3919, lng: -40.0719 },
-  { id: 4, num: "04", title: "Renato César Pimenta Maia", city: "Nova Venécia", state: "ES", segment: "Residencial", kwp: "41,31", geracao: "4.900", modulos: "81", economia: "3.577", image: "/Portfolio/img/Projetos/renatocesar.jpg", lat: -18.7106, lng: -40.4014 },
-  { id: 5, num: "05", title: "Hotel Ibis Styles", city: "São Mateus", state: "ES", segment: "Hotelaria", kwp: "140,80", geracao: "17.230", modulos: "408", economia: "13.959", image: "/Portfolio/img/Projetos/hotelibis.jpg", lat: -18.7240, lng: -39.8540 },
-  { id: 6, num: "06", title: "Brasigran", city: "Serra", state: "ES", segment: "Industrial", kwp: "466,56", geracao: "55.987", modulos: "1.296", economia: "31.700", image: "/Portfolio/img/Projetos/brasigran.jpg", lat: -20.1289, lng: -40.3074 },
-  { id: 7, num: "07", title: "Vila Cizinho", city: "Conceição da Barra", state: "ES", segment: "Residencial", kwp: "10,20", geracao: "1.258", modulos: "20", economia: "1.045", image: "/Portfolio/img/Projetos/vilacizino.jpg", lat: -18.5856, lng: -39.7339 },
-  { id: 8, num: "08", title: "Posto Flecha", city: "Itamaraju", state: "BA", segment: "Comercial", kwp: "140,14", geracao: "16.625", modulos: "308", economia: "13.466", image: "/Portfolio/img/Projetos/postoflecha.jpg", lat: -17.0387, lng: -39.5295 },
-  { id: 9, num: "09", title: "Rally Pneus", city: "Linhares", state: "ES", segment: "Comercial", kwp: "105,60", geracao: "12.618", modulos: "207", economia: "10.220", image: "/Portfolio/img/Projetos/rallypenus.jpg", lat: -19.4000, lng: -40.0650 },
-  { id: 10, num: "10", title: "Frigorífico Montanha", city: "Montanha", state: "ES", segment: "Industrial", kwp: "141,90", geracao: "17.000", modulos: "258", economia: "13.700", image: "/Portfolio/img/Projetos/frigorificomontanha.jpg", lat: -18.1283, lng: -40.3697 },
-];
+import { PROJECTS } from "@/lib/projects";
 
 const FILTERS = [
   { value: "all", label: "Todos" },
@@ -56,46 +30,6 @@ const FILTERS = [
   { value: "Hotelaria", label: "Hotelaria" },
 ];
 
-/* ────────────────────────────────────────────────────────────
-   FADE IN HOOK
-   ──────────────────────────────────────────────────────────── */
-
-function useFadeIn() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold: 0.10 },
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-  return { ref, visible };
-}
-
-function FadeIn({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, visible } = useFadeIn();
-  return (
-    <div
-      ref={ref}
-      className={className}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(20px)",
-        transition: `opacity 0.5s cubic-bezier(0.16,1,0.3,1) ${delay}s, transform 0.5s cubic-bezier(0.16,1,0.3,1) ${delay}s`,
-      }}
-    >
-      {children}
-    </div>
-  );
-}
-
-/* ────────────────────────────────────────────────────────────
-   COMPONENT
-   ──────────────────────────────────────────────────────────── */
 
 export default function Portfolio() {
   const [filter, setFilter] = useState("all");
@@ -466,9 +400,9 @@ export default function Portfolio() {
                       marginBottom: "16px",
                     }}
                   >
-                    Seu projeto pode ser o<br />
+                    Seu projeto pode ser<br />
                     <em style={{ fontStyle: "italic", fontWeight: 900, color: "#fff" }}>
-                      próximo no mapa.
+                      o próximo no mapa.
                     </em>
                   </h2>
                 </FadeIn>
@@ -488,22 +422,15 @@ export default function Portfolio() {
 
               <div className="lg:col-span-4 flex lg:justify-end">
                 <FadeIn delay={0.15}>
-                  <Link
+                  <Button
+                    as="link"
                     href="/orcamento"
-                    className="inline-flex items-center gap-3 px-8 py-4 text-sm rounded-full transition-all duration-300 hover:-translate-y-0.5 group"
-                    style={{
-                      background: "#fff",
-                      color: "#00529B",
-                      fontFamily: "var(--font-hanken, sans-serif)",
-                      fontWeight: 800,
-                      letterSpacing: "0.1em",
-                      textTransform: "uppercase",
-                      boxShadow: "0 12px 32px rgba(10,31,56,0.30)",
-                    }}
+                    variant="outline-light"
+                    size="lg"
+                    iconRight={<ArrowRight size={15} strokeWidth={2.5} />}
                   >
                     Iniciar simulação
-                    <ArrowRight size={15} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-1" />
-                  </Link>
+                  </Button>
                 </FadeIn>
               </div>
             </div>
