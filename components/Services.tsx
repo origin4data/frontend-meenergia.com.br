@@ -2,8 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import SimulationModal from "./SimulationModal";
 
 /* ────────────────────────────────────────────────────────────
    DATA
@@ -116,7 +116,6 @@ function FadeIn({ children, className, delay = 0 }: { children: React.ReactNode;
    ──────────────────────────────────────────────────────────── */
 
 export default function Services() {
-  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <>
@@ -127,7 +126,7 @@ export default function Services() {
             ════════════════════════════════════════════ */}
         <div id="home" className="relative min-h-[60vh] flex items-end overflow-hidden">
           <Image
-            src="/servico.jpeg"
+            src="/Servicos/img/servico.jpeg"
             alt="ME Energia Solar — Serviços"
             fill
             className="object-cover"
@@ -406,16 +405,7 @@ export default function Services() {
         {/* ════════════════════════════════════════════
             FINAL CTA — verde brand
             ════════════════════════════════════════════ */}
-        <div className="relative overflow-hidden" style={{ background: "#00529B" }}>
-          <div
-            className="pointer-events-none absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full"
-            style={{ background: "radial-gradient(circle, rgba(168,216,78,0.18) 0%, transparent 70%)" }}
-          />
-          <div
-            className="pointer-events-none absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full"
-            style={{ background: "radial-gradient(circle, rgba(0,82,155,0.15) 0%, transparent 70%)" }}
-          />
-
+        <div className="relative overflow-hidden" style={{ background: "linear-gradient(90deg, #68AF25 0%, #00529B 100%)" }}>
           <div className="relative max-w-5xl mx-auto px-6 lg:px-12 py-20 md:py-28">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8">
@@ -446,7 +436,7 @@ export default function Services() {
                     }}
                   >
                     Pronto para gerar a sua{" "}
-                    <em style={{ fontStyle: "italic", color: "#6FB8EE" }}>própria energia?</em>
+                    <em style={{ fontStyle: "italic", color: "#fff" }}>própria energia?</em>
                   </h2>
                 </FadeIn>
                 <FadeIn delay={0.1}>
@@ -465,8 +455,8 @@ export default function Services() {
 
               <div className="lg:col-span-4 flex lg:justify-end">
                 <FadeIn delay={0.15}>
-                  <button
-                    onClick={() => setModalOpen(true)}
+                  <Link
+                    href="/orcamento"
                     className="inline-flex items-center gap-3 px-8 py-4 text-sm rounded-full transition-all duration-300 hover:-translate-y-0.5 group"
                     style={{
                       background: "#fff",
@@ -480,7 +470,7 @@ export default function Services() {
                   >
                     Iniciar simulação
                     <ArrowRight size={15} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-1" />
-                  </button>
+                  </Link>
                 </FadeIn>
               </div>
             </div>
@@ -488,7 +478,6 @@ export default function Services() {
         </div>
       </section>
 
-      <SimulationModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </>
   );
 }
