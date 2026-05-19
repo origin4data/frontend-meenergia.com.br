@@ -46,16 +46,6 @@ export default function Sobre() {
             <span
               className="text-[10px] lg:text-[11px] uppercase tracking-[0.32em] font-medium"
               style={{
-                color: "#7A7565",
-                fontFamily: "var(--font-mono, monospace)",
-              }}
-            >
-              Cap. 01
-            </span>
-            <div className="h-px w-12 lg:w-20" style={{ background: "#1A1A14" }} />
-            <span
-              className="text-[10px] lg:text-[11px] uppercase tracking-[0.32em] font-medium"
-              style={{
                 color: "#1A1A14",
                 fontFamily: "var(--font-mono, monospace)",
               }}
@@ -413,18 +403,8 @@ export default function Sobre() {
           />
 
           <div className="relative grid grid-cols-12 gap-x-6 gap-y-10">
-            {/* Eyebrow + Lockup logos */}
+            {/* Lockup logos */}
             <div className="col-span-12 lg:col-span-4">
-              <div
-                className="text-[10px] uppercase tracking-[0.32em] mb-5"
-                style={{
-                  fontFamily: "var(--font-mono, monospace)",
-                  color: "#6FB8EE",
-                }}
-              >
-                Cap. 02 · Parceria
-              </div>
-
               {/* Logos lockup: ME × WEG */}
               <div className="flex items-center gap-4 mb-5">
                 {/* ME logo */}
