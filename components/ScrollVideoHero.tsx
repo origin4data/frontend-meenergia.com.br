@@ -323,21 +323,6 @@ export default function ScrollVideoHero() {
           style={{ opacity: showContent ? 1 : 0, y: contentY, pointerEvents: showContent ? "auto" : "none" }}
         >
           <div className="flex flex-col items-center gap-4 lg:gap-7 max-w-4xl w-full">
-            {/* Eyebrow masthead */}
-            <div className="flex items-center gap-3">
-              <span
-                className="text-[10px] uppercase tracking-[0.32em]"
-                style={{
-                  color: "rgba(168,216,78,0.85)",
-                  fontFamily: "var(--font-mono, monospace)",
-                  fontWeight: 600,
-                }}
-              >
-                Cap. 00 · Convite
-              </span>
-              <div className="h-px w-10" style={{ background: "rgba(168,216,78,0.45)" }} />
-            </div>
-
             {/* Headline — Two-tier: pre-title + palavra gigante */}
             <div className="text-center">
               <div
