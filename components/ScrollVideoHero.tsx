@@ -4,29 +4,27 @@ import { useRef, useState, useCallback, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useScroll, useTransform, useMotionValueEvent, motion } from "framer-motion";
-import SimulationModal from "./SimulationModal";
 
 const cards = [
   {
-    image: "/card/sol-pilha-verde.png",
+    image: "/Home/img/card/sol-pilha-verde.png",
     text: "Economize em até 95% na sua conta de energia.",
   },
   {
-    image: "/card/tomada.card.png",
+    image: "/Home/img/card/tomada.card.png",
     text: "Tenha liberdade e independência energética.",
   },
   {
-    image: "/card/casa-planta-verde.png",
+    image: "/Home/img/card/casa-planta-verde.png",
     text: "Valorize seu imóvel, tornando-o sustentável.",
   },
   {
-    image: "/card/painel-solar-verde.png",
+    image: "/Home/img/card/painel-solar-verde.png",
     text: "Tecnologia WEG com até 25 anos de garantia.",
   },
 ];
 
 export default function ScrollVideoHero() {
-  const [modalOpen, setModalOpen] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
   const sectionRef = useRef<HTMLElement>(null);
@@ -103,10 +101,13 @@ export default function ScrollVideoHero() {
     <section
       ref={sectionRef}
       id="home"
-      className="relative"
-      style={{ height: "300vh", background: "#0A1F38" }}
+      className="relative h-[150vh] md:h-[180vh] lg:h-[250vh]"
+      style={{
+        background:
+          "linear-gradient(180deg, #0A1F38 0%, #0A1F38 55%, #1A2845 80%, #F4EFE6 100%)",
+      }}
     >
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
+      <div className="sticky top-0 h-dvh w-full overflow-hidden">
 
         {/* Vídeo — blur no início (frase) e no final (conteúdo) */}
         <motion.video
@@ -116,7 +117,7 @@ export default function ScrollVideoHero() {
             filter: videoFilter,
             scale: videoScale,
           }}
-          src="/video-sol-scrub.mp4"
+          src="/Home/img/video-sol-scrub.mp4"
           muted
           playsInline
           preload="auto"
@@ -400,8 +401,8 @@ export default function ScrollVideoHero() {
 
             {/* CTAs editorial */}
             <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 pt-2">
-              <button
-                onClick={() => setModalOpen(true)}
+              <Link
+                href="/orcamento"
                 className="group inline-flex items-center gap-3 transition-all duration-300"
                 style={{
                   fontFamily: "var(--font-mono, monospace)",
@@ -423,7 +424,7 @@ export default function ScrollVideoHero() {
                     <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
-              </button>
+              </Link>
 
               <Link
                 href="#sobre"
@@ -502,7 +503,6 @@ export default function ScrollVideoHero() {
         </motion.div>
       </div>
 
-      <SimulationModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 }
