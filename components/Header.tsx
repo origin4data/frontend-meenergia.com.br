@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/ui/Button";
 
 const navLinks = [
   { label: "Sobre", href: "/#sobre" },
@@ -127,21 +128,18 @@ export default function Header() {
               {EMAIL}
             </a>
 
-            <a
+            <Button
+              as="a"
               href={WHATSAPP_HREF}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 hover:-translate-y-px whitespace-nowrap ml-1"
-              style={{
-                background: "#68AF25",
-                borderRadius: "2rem",
-                boxShadow: "0 4px 16px rgba(61,122,0,0.40)",
-                fontFamily: "var(--font-jakarta, sans-serif)",
-              }}
+              variant="whatsapp"
+              size="sm"
+              iconLeft={<WhatsappIcon />}
+              className="ml-1 whitespace-nowrap"
             >
-              <WhatsappIcon />
               WhatsApp
-            </a>
+            </Button>
           </div>
 
           {/* ── Mobile Hamburger ── */}
@@ -210,17 +208,21 @@ export default function Header() {
             <a href={EMAIL_HREF} className="flex items-center gap-2 text-sm" style={{ color: "#6A6A60" }}>
               <MailIcon /> {EMAIL}
             </a>
-            <a
+            <Button
+              as="a"
               href={WHATSAPP_HREF}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMenuOpen(false)}
-              className="flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-white mt-1 rounded-full transition-opacity hover:opacity-90"
-              style={{ background: "#68AF25" }}
+              variant="whatsapp"
+              size="md"
+              iconLeft={<WhatsappIcon />}
+              fullWidth
+              className="mt-1"
+              style={{ boxShadow: "none" }}
             >
-              <WhatsappIcon />
               Chamar no WhatsApp
-            </a>
+            </Button>
           </div>
         </nav>
       </div>
