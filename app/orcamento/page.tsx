@@ -1,9 +1,13 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { MessageCircle, Zap, DollarSign, Calendar, TrendingUp, Sun, Layers } from "lucide-react";
+import { MessageCircle, Zap, DollarSign, Calendar, TrendingUp, Sun, Layers, ArrowLeft, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Eyebrow } from "@/components/ui/Eyebrow";
+import { TextField } from "@/components/ui/TextField";
+import { Pill } from "@/components/ui/Pill";
+import { Button } from "@/components/ui/Button";
 
 const UNIT_TYPES = [
   { code: "RES", label: "Residencial" },
@@ -118,18 +122,6 @@ export default function OrcamentoPage() {
     }
   };
 
-  const fieldStyle: React.CSSProperties = {
-    fontFamily: "var(--font-hanken, sans-serif)",
-    fontWeight: 600,
-    fontSize: "1rem",
-    color: "#141410",
-    background: "transparent",
-    borderBottom: "1.5px solid #141410",
-    padding: "10px 0",
-    width: "100%",
-    outline: "none",
-  };
-
   const labelStyle: React.CSSProperties = {
     fontFamily: "var(--font-hanken, sans-serif)",
     fontWeight: 700,
@@ -165,19 +157,7 @@ export default function OrcamentoPage() {
         />
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
-          <div
-            className="mb-3"
-            style={{
-              fontFamily: "var(--font-hanken, sans-serif)",
-              fontWeight: 700,
-              fontSize: "11px",
-              color: "#6FB8EE",
-              letterSpacing: "0.25em",
-              textTransform: "uppercase",
-            }}
-          >
-            — Calculadora solar
-          </div>
+          <Eyebrow tone="accent" className="mb-3">— Calculadora solar</Eyebrow>
           <h1
             style={{
               fontFamily: "var(--font-hanken, sans-serif)",
@@ -229,18 +209,7 @@ export default function OrcamentoPage() {
             <div className="space-y-8">
               {/* Eyebrow + stepper */}
               <div className="space-y-4">
-                <div
-                  style={{
-                    fontFamily: "var(--font-hanken, sans-serif)",
-                    fontWeight: 700,
-                    fontSize: "11px",
-                    color: "#00529B",
-                    letterSpacing: "0.25em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  — Etapa {step + 1} de {STEPS.length} · {STEPS[step].label}
-                </div>
+                <Eyebrow tone="primary">— Etapa {step + 1} de {STEPS.length} · {STEPS[step].label}</Eyebrow>
 
                 <div className="flex items-center gap-3">
                   {STEPS.map((s, i) => {
@@ -279,48 +248,26 @@ export default function OrcamentoPage() {
               {/* Step 0: Consumo + Tipo de unidade */}
               {step === 0 && (
                 <div className="space-y-8">
-                  <div>
-                    <label htmlFor="bill" style={labelStyle}>Conta de luz mensal (R$)</label>
-                    <input
-                      id="bill"
-                      type="number"
-                      inputMode="numeric"
-                      min={0}
-                      placeholder="350"
-                      value={monthlyBill}
-                      onChange={(e) => setMonthlyBill(e.target.value)}
-                      style={fieldStyle}
-                      autoFocus
-                    />
-                  </div>
+                  <TextField
+                    id="bill"
+                    label="Conta de luz mensal (R$)"
+                    type="number"
+                    inputMode="numeric"
+                    min={0}
+                    placeholder="350"
+                    value={monthlyBill}
+                    onChange={(e) => setMonthlyBill(e.target.value)}
+                    autoFocus
+                  />
 
                   <div>
                     <label style={labelStyle}>Tipo de unidade</label>
                     <div className="flex flex-wrap gap-2 pt-1">
-                      {UNIT_TYPES.map((u) => {
-                        const active = u.code === unitType;
-                        return (
-                          <button
-                            key={u.code}
-                            type="button"
-                            onClick={() => setUnitType(u.code)}
-                            className="px-5 py-2.5 text-sm transition-all duration-200"
-                            style={{
-                              fontFamily: "var(--font-hanken, sans-serif)",
-                              fontWeight: 700,
-                              letterSpacing: "0.08em",
-                              textTransform: "uppercase",
-                              fontSize: "11px",
-                              border: `1.5px solid ${active ? "#00529B" : "#C9C2B4"}`,
-                              background: active ? "#00529B" : "transparent",
-                              color: active ? "#fff" : "#141410",
-                              borderRadius: "999px",
-                            }}
-                          >
-                            {u.label}
-                          </button>
-                        );
-                      })}
+                      {UNIT_TYPES.map((u) => (
+                        <Pill key={u.code} active={u.code === unitType} onClick={() => setUnitType(u.code)}>
+                          {u.label}
+                        </Pill>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -330,14 +277,13 @@ export default function OrcamentoPage() {
               {step === 1 && (
                 <div className="space-y-8">
                   <div>
-                    <label htmlFor="city" style={labelStyle}>Cidade</label>
-                    <input
+                    <TextField
                       id="city"
+                      label="Cidade"
                       type="text"
                       placeholder="São Mateus"
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
-                      style={fieldStyle}
                       autoFocus
                     />
                     <p
@@ -353,42 +299,33 @@ export default function OrcamentoPage() {
               {/* Step 2: Nome, Telefone, Email */}
               {step === 2 && (
                 <div className="space-y-8">
-                  <div>
-                    <label htmlFor="name" style={labelStyle}>Nome</label>
-                    <input
-                      id="name"
-                      type="text"
-                      placeholder="Seu nome completo"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      style={fieldStyle}
-                      autoFocus
-                    />
-                  </div>
+                  <TextField
+                    id="name"
+                    label="Nome"
+                    type="text"
+                    placeholder="Seu nome completo"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    autoFocus
+                  />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="phone" style={labelStyle}>Telefone (WhatsApp)</label>
-                      <input
-                        id="phone"
-                        type="tel"
-                        inputMode="numeric"
-                        placeholder="(27) 99999-9999"
-                        value={phone}
-                        onChange={(e) => setPhone(formatPhone(e.target.value))}
-                        style={fieldStyle}
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" style={labelStyle}>E-mail</label>
-                      <input
-                        id="email"
-                        type="email"
-                        placeholder="voce@email.com"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        style={fieldStyle}
-                      />
-                    </div>
+                    <TextField
+                      id="phone"
+                      label="Telefone (WhatsApp)"
+                      type="tel"
+                      inputMode="numeric"
+                      placeholder="(27) 99999-9999"
+                      value={phone}
+                      onChange={(e) => setPhone(formatPhone(e.target.value))}
+                    />
+                    <TextField
+                      id="email"
+                      label="E-mail"
+                      type="email"
+                      placeholder="voce@email.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
                   </div>
                 </div>
               )}
@@ -396,79 +333,48 @@ export default function OrcamentoPage() {
               {/* Navigation */}
               <div className="flex items-center gap-3 pt-4">
                 {step > 0 && (
-                  <button
-                    type="button"
+                  <Button
+                    variant="secondary"
+                    size="sm"
                     onClick={() => setStep((s) => Math.max(s - 1, 0))}
-                    className="inline-flex items-center justify-center gap-2 py-2.5 text-sm transition-all duration-200"
-                    style={{
-                      width: "120px",
-                      fontFamily: "var(--font-hanken, sans-serif)",
-                      fontWeight: 700,
-                      letterSpacing: "0.12em",
-                      textTransform: "uppercase",
-                      fontSize: "11px",
-                      border: "1.5px solid #141410",
-                      color: "#141410",
-                      background: "transparent",
-                      borderRadius: "999px",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = "#141410";
-                      e.currentTarget.style.color = "#fff";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = "transparent";
-                      e.currentTarget.style.color = "#141410";
-                    }}
+                    iconLeft={<ArrowLeft size={14} strokeWidth={2.5} />}
+                    style={{ width: "120px" }}
                   >
-                    ← Voltar
-                  </button>
+                    Voltar
+                  </Button>
                 )}
                 {step < STEPS.length - 1 && (
-                  <button
-                    type="button"
+                  <Button
+                    variant="primary"
+                    size="sm"
                     onClick={() => stepReady && setStep((s) => Math.min(s + 1, STEPS.length - 1))}
                     disabled={!stepReady}
-                    className="inline-flex items-center gap-2 px-6 py-2.5 text-sm transition-all duration-200"
+                    iconRight={<ArrowRight size={14} strokeWidth={2.5} />}
                     style={{
-                      fontFamily: "var(--font-hanken, sans-serif)",
-                      fontWeight: 800,
-                      letterSpacing: "0.12em",
-                      textTransform: "uppercase",
-                      fontSize: "11px",
                       background: stepReady ? "#00529B" : "#C9C2B4",
-                      color: "#fff",
+                      boxShadow: "none",
                       borderRadius: "999px",
                       cursor: stepReady ? "pointer" : "not-allowed",
                     }}
                   >
-                    Continuar →
-                  </button>
+                    Continuar
+                  </Button>
                 )}
                 {step === STEPS.length - 1 && (
                   allDone ? (
-                    <a
+                    <Button
+                      as="a"
                       href={whatsappHref}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={handleSend}
-                      className="inline-flex items-center justify-center gap-2 py-2.5 text-sm transition-all duration-200 hover:-translate-y-0.5"
-                      style={{
-                        width: "240px",
-                        fontFamily: "var(--font-hanken, sans-serif)",
-                        fontWeight: 800,
-                        letterSpacing: "0.12em",
-                        textTransform: "uppercase",
-                        fontSize: "11px",
-                        background: "#68AF25",
-                        color: "#fff",
-                        borderRadius: "999px",
-                        boxShadow: "0 8px 24px rgba(61,122,0,0.35)",
-                      }}
+                      variant="whatsapp"
+                      size="sm"
+                      iconLeft={<MessageCircle size={14} strokeWidth={2.5} />}
+                      style={{ width: "240px", boxShadow: "0 8px 24px rgba(61,122,0,0.35)" }}
                     >
-                      <MessageCircle size={14} strokeWidth={2.5} />
                       Enviar pelo WhatsApp
-                    </a>
+                    </Button>
                   ) : (
                     <span
                       style={{
@@ -555,19 +461,7 @@ export default function OrcamentoPage() {
                 transition: "background 0.3s ease",
               }}
             >
-              <div
-                style={{
-                  fontFamily: "var(--font-hanken, sans-serif)",
-                  fontWeight: 700,
-                  fontSize: "11px",
-                  color: hasInput ? "#6FB8EE" : "#00529B",
-                  letterSpacing: "0.25em",
-                  textTransform: "uppercase",
-                  marginBottom: "8px",
-                }}
-              >
-                — Sua simulação
-              </div>
+              <Eyebrow tone={hasInput ? "accent" : "primary"} className="mb-2">— Sua simulação</Eyebrow>
               <h2
                 style={{
                   fontFamily: "var(--font-hanken, sans-serif)",
@@ -621,19 +515,7 @@ export default function OrcamentoPage() {
       {/* ── Contact + CTA ── */}
       <section className="py-16 lg:py-24" style={{ background: "linear-gradient(90deg, #68AF25 0%, #00529B 100%)" }}>
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          <div
-            className="mb-4"
-            style={{
-              fontFamily: "var(--font-hanken, sans-serif)",
-              fontWeight: 700,
-              fontSize: "11px",
-              color: "rgba(255,255,255,0.85)",
-              letterSpacing: "0.25em",
-              textTransform: "uppercase",
-            }}
-          >
-            — Próximo passo
-          </div>
+          <Eyebrow tone="light" className="mb-4">— Próximo passo</Eyebrow>
           <h2
             style={{
               fontFamily: "var(--font-hanken, sans-serif)",
@@ -655,23 +537,16 @@ export default function OrcamentoPage() {
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <a
+            <Button
+              as="a"
               href="#calculadora"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5"
-              style={{
-                background: "#68AF25",
-                color: "#fff",
-                fontFamily: "var(--font-hanken, sans-serif)",
-                fontWeight: 800,
-                fontSize: "12px",
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-                boxShadow: "0 12px 32px rgba(61,122,0,0.4)",
-              }}
+              variant="whatsapp"
+              size="lg"
+              iconLeft={<MessageCircle size={16} strokeWidth={2.5} />}
+              style={{ boxShadow: "0 12px 32px rgba(61,122,0,0.4)" }}
             >
-              <MessageCircle size={16} strokeWidth={2.5} />
               Solicitar orçamento
-            </a>
+            </Button>
             <span
               style={{
                 fontFamily: "var(--font-hanken, sans-serif)",
