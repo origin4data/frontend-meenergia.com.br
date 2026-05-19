@@ -1,7 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Brand Primary (Blue — based on logo) ── */
+  --breakpoint-mobile:    375px;
+  --breakpoint-tablet:    768px;
+  --breakpoint-tablet-lg: 1024px;
+  --breakpoint-laptop:    1440px;
+  --breakpoint-desktop:   2560px;
+
   --color-primary-deep:   #003A6B;
   --color-primary:        #00529B;
   --color-primary-mid:    #0066BD;
@@ -9,9 +14,6 @@
   --color-primary-pale:   #D9E8F5;
   --color-primary-ghost:  #E8F1F9;
 
-  /* Legacy aliases — mantidos apontando para o novo azul para
-     evitar quebra em qualquer classe utilitária (bg-green-*, etc.)
-     ainda remanescente. Pode ser removido após auditoria. */
   --color-green-deep:   var(--color-primary-deep);
   --color-green:        var(--color-primary);
   --color-green-mid:    var(--color-primary-mid);
@@ -32,16 +34,12 @@
   --color-border:       #DEDED6;
   --color-border-soft:  #EEEEE8;
 
-  /* ── Fonts ──
-     Troque a fonte global trocando apenas a linha de --font-body abaixo.
-     As variáveis --font-poppins e --font-montserrat são injetadas em
-     <html> via next/font/google em app/layout.tsx. */
   --font-poppins:    var(--font-poppins);
   --font-montserrat: var(--font-montserrat);
 
-  /* Ativa Poppins como fonte global. Para comparar com Montserrat,
-     basta trocar para: var(--font-montserrat) */
-  --font-body:    var(--font-poppins);
+  /* Fonte global ativa. Para alternar entre as duas variantes
+     basta trocar entre: var(--font-poppins) ↔ var(--font-montserrat) */
+  --font-body:    var(--font-montserrat);
 
   /* ── Radii ── */
   --radius-2xl: 1.5rem;
@@ -59,6 +57,48 @@ html, body {
 body {
   background: var(--color-surface);
   color: var(--color-ink);
-  font-family: var(--font-body), "Poppins", "Montserrat", system-ui, sans-serif;
+  font-family: var(--font-body), "Montserrat", "Poppins", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+
+  /* Redireciona as fontes específicas usadas inline nos componentes
+     (--font-jakarta, --font-hanken, --font-display, etc.) para a fonte
+     global ativa. Para reverter ao design original, comente este bloco. */
+  --font-jakarta: var(--font-body);
+  --font-hanken:  var(--font-body);
+  --font-display: var(--font-body);
+  --font-hero:    var(--font-body);
+  --font-serif:   var(--font-body);
+  --font-mono:    var(--font-body);
+
+  /* Mínimo para evitar overflow horizontal no baseline mobile (375px). */
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+/* ── Container responsivo ──
+   Use `class="container-x"` em wrappers que devem se adaptar aos 4 alvos.
+   Substitui o padrão `max-w-7xl mx-auto px-6 lg:px-12` com escalonamento
+   adicional em laptop e desktop. */
+.container-x {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.5rem; /* 24px — baseline mobile 375 */
+  max-width: 1280px;       /* default (até 1440) */
+}
+@media (min-width: 768px) {
+  .container-x { padding-inline: 2rem; }      /* 32px tablet */
+}
+@media (min-width: 1024px) {
+  .container-x { padding-inline: 2.5rem; }    /* 40px tablet-landscape / netbook */
+}
+@media (min-width: 1440px) {
+  .container-x { padding-inline: 3rem; max-width: 1440px; } /* laptop */
+}
+@media (min-width: 2560px) {
+  .container-x { padding-inline: 5rem; max-width: 1920px; } /* desktop / 4K */
+}
+
+/* Fix de overflow em imagens / vídeos para mobile (375px) */
+img, video {
+  max-width: 100%;
 }
