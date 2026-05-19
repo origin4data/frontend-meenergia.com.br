@@ -343,12 +343,23 @@ export default function Sobre() {
           className="border-t border-b py-10 lg:py-14 mb-24 lg:mb-32"
           style={{ borderColor: "#1A1A14" }}
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 lg:divide-x" style={{ borderColor: "#C9C2B4" }}>
-            {stats.map((s, i) => (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10">
+            {stats.map((s, i) => {
+              // Divider esquerdo:
+              // • mobile (2 cols): só nos itens da coluna 2 — índices ímpares (1, 3)
+              // • md+ (4 cols): em todos os itens exceto o primeiro (i > 0)
+              const isMobileSecondCol = i % 2 === 1;
+              const dividerClass =
+                i === 0
+                  ? ""
+                  : isMobileSecondCol
+                  ? "border-l"
+                  : "md:border-l";
+              return (
               <div
                 key={s.kicker}
-                className={`px-0 ${i > 0 ? "lg:pl-10" : ""} ${i < stats.length - 1 ? "lg:pr-10" : ""}`}
-                style={i > 0 ? { borderLeft: "1px solid #C9C2B4" } : {}}
+                className={`pl-4 md:pl-6 lg:pl-10 pr-4 lg:pr-10 ${dividerClass}`}
+                style={{ borderColor: "#C9C2B4" }}
               >
                 <div
                   className="text-[10px] uppercase tracking-[0.32em] mb-3"
@@ -381,7 +392,8 @@ export default function Sobre() {
                   {s.caption}
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
