@@ -20,7 +20,7 @@ const TARIFF_PER_KWH = 0.85;
 const KWH_PER_KWP_MONTH = 120;
 const MODULE_WATTS = 0.45;
 const SYSTEM_COST_PER_KWP = 4200;
-const WHATSAPP_NUMBER = "5521965480168";
+const WHATSAPP_NUMBER = "5527997219703";
 
 function currency(v: number) {
   if (!isFinite(v) || v <= 0) return "R$ 0";
