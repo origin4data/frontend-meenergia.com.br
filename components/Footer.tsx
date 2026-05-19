@@ -35,7 +35,7 @@ export default function Footer() {
   return (
     <footer
       className="relative overflow-hidden"
-      style={{ background: "#0A1F38", color: "#F4EFE6" }}
+      style={{ background: "linear-gradient(90deg, #68AF25 0%, #00529B 100%)", color: "#F4EFE6" }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
@@ -112,14 +112,14 @@ export default function Footer() {
         >
           <p>© {new Date().getFullYear()} ME Energia Solar.</p>
           <p>
-            Desenvolvido por{" "}
+            Desenvolvido com <span aria-label="amor" style={{ color: "#E63946" }}>♥</span> por{" "}
             <a
               href="https://origindata.com.br"
               target="_blank"
               rel="noopener noreferrer"
               className="underline underline-offset-2 transition-colors hover:text-[#6FB8EE]"
             >
-              Origindata
+              OriginData
             </a>
           </p>
         </div>
