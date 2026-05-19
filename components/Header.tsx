@@ -3,17 +3,12 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import SimulationModal from "./SimulationModal";
 
-type NavLink =
-  | { label: string; href: string }
-  | { label: string; action: "orcamento" };
-
-const navLinks: NavLink[] = [
+const navLinks = [
   { label: "Sobre", href: "/#sobre" },
   { label: "Serviços", href: "/servicos" },
   { label: "Portfólio", href: "/portfolio" },
-  { label: "Orçamento", action: "orcamento" },
+  { label: "Orçamento", href: "/orcamento" },
 ];
 
 const PHONE = "+55 27 99721-9703";
@@ -25,7 +20,6 @@ const EMAIL_HREF = "mailto:Contato@Meenergia.com.br";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [budgetOpen, setBudgetOpen] = useState(false);
 
   useEffect(() => {
     const HEADER_HEIGHT = 80;
@@ -82,7 +76,7 @@ export default function Header() {
               alt="ME Energia Solar"
               width={180}
               height={54}
-              className="h-12 w-auto object-contain transition-all duration-300"
+              className="h-8 md:h-9 lg:h-10 laptop:h-11 w-auto object-contain transition-all duration-300"
               style={{ filter: scrolled ? "brightness(0) saturate(100%)" : "none" }}
               priority
             />
@@ -90,47 +84,24 @@ export default function Header() {
 
           {/* ── Desktop Navigation ── */}
           <nav className="hidden lg:flex items-center gap-1 flex-1 justify-center">
-            {navLinks.map((link) => {
-              const baseClass = "px-3.5 py-2 text-sm font-medium tracking-wide whitespace-nowrap rounded-lg transition-all duration-200";
-              const baseStyle = { color: textColor, fontFamily: "var(--font-jakarta, sans-serif)" };
-              const onEnter = (e: React.MouseEvent<HTMLElement>) => {
-                e.currentTarget.style.background = scrolled ? "#F2F2ED" : "rgba(255,255,255,0.10)";
-                e.currentTarget.style.color = scrolled ? "#141410" : "#fff";
-              };
-              const onLeave = (e: React.MouseEvent<HTMLElement>) => {
-                e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.color = textColor;
-              };
-
-              if ("action" in link) {
-                return (
-                  <button
-                    key={link.label}
-                    type="button"
-                    onClick={() => setBudgetOpen(true)}
-                    className={baseClass}
-                    style={baseStyle}
-                    onMouseEnter={onEnter}
-                    onMouseLeave={onLeave}
-                  >
-                    {link.label}
-                  </button>
-                );
-              }
-
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={baseClass}
-                  style={baseStyle}
-                  onMouseEnter={onEnter}
-                  onMouseLeave={onLeave}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="px-3.5 py-2 text-sm font-medium tracking-wide whitespace-nowrap rounded-lg transition-all duration-200"
+                style={{ color: textColor, fontFamily: "var(--font-jakarta, sans-serif)" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = scrolled ? "#00529B" : "rgba(255,255,255,0.10)";
+                  e.currentTarget.style.color = "#fff";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                  e.currentTarget.style.color = textColor;
+                }}
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
           {/* ── Right: Contacts + CTA ── */}
@@ -212,42 +183,25 @@ export default function Header() {
         }}
       >
         <nav className="flex flex-col px-6 pb-6 pt-2 gap-0.5">
-          {navLinks.map((link) => {
-            const baseClass = "px-3 py-3 text-sm font-medium rounded-lg transition-colors text-left";
-            const baseStyle = { color: "#3A3A34" };
-            const onEnter = (e: React.MouseEvent<HTMLElement>) => { e.currentTarget.style.background = "#F2F2ED"; };
-            const onLeave = (e: React.MouseEvent<HTMLElement>) => { e.currentTarget.style.background = "transparent"; };
-
-            if ("action" in link) {
-              return (
-                <button
-                  key={link.label}
-                  type="button"
-                  onClick={() => { setMenuOpen(false); setBudgetOpen(true); }}
-                  className={baseClass}
-                  style={baseStyle}
-                  onMouseEnter={onEnter}
-                  onMouseLeave={onLeave}
-                >
-                  {link.label}
-                </button>
-              );
-            }
-
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className={baseClass}
-                style={baseStyle}
-                onMouseEnter={onEnter}
-                onMouseLeave={onLeave}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              className="px-3 py-3 text-sm font-medium rounded-lg transition-colors"
+              style={{ color: "#3A3A34" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "#00529B";
+                e.currentTarget.style.color = "#fff";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.color = "#3A3A34";
+              }}
+            >
+              {link.label}
+            </Link>
+          ))}
 
           <div className="mt-4 pt-4 flex flex-col gap-3" style={{ borderTop: "1px solid #DEDED6" }}>
             <a href={PHONE_HREF} className="flex items-center gap-2 text-sm" style={{ color: "#6A6A60" }}>
@@ -270,7 +224,6 @@ export default function Header() {
           </div>
         </nav>
       </div>
-      <SimulationModal open={budgetOpen} onClose={() => setBudgetOpen(false)} />
     </header>
   );
 }
