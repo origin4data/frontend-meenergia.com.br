@@ -17,16 +17,16 @@ type Project = {
 };
 
 const PROJECTS: Project[] = [
-  { id: 1, num: "01", title: "Alcides Guisolfi", city: "São Mateus", state: "ES", kwp: "59,84", geracao: "7.230", modulos: "146", economia: "5.277", image: "/Projetos/alcidesguisolfi.jpg" },
-  { id: 2, num: "02", title: "Escola Master", city: "São Mateus", state: "ES", kwp: "139,00", geracao: "17.000", modulos: "403", economia: "13.770", image: "/Projetos/escolamaster.jpg" },
-  { id: 3, num: "03", title: "Proteinorte", city: "Linhares", state: "ES", kwp: "399,84", geracao: "47.980", modulos: "784", economia: "35.000", image: "/Projetos/proteinorte.jpg" },
-  { id: 4, num: "04", title: "Renato César Pimenta Maia", city: "Nova Venécia", state: "ES", kwp: "41,31", geracao: "4.900", modulos: "81", economia: "3.577", image: "/Projetos/renatocesar.jpg" },
-  { id: 5, num: "05", title: "Hotel Ibis Styles", city: "São Mateus", state: "ES", kwp: "140,80", geracao: "17.230", modulos: "408", economia: "13.959", image: "/Projetos/hotelibis.jpg" },
-  { id: 6, num: "06", title: "Brasigran", city: "Serra", state: "ES", kwp: "466,56", geracao: "55.987", modulos: "1.296", economia: "31.700", image: "/Projetos/brasigran.jpg" },
-  { id: 7, num: "07", title: "Vila Cizinho", city: "Conceição da Barra", state: "ES", kwp: "10,20", geracao: "1.258", modulos: "20", economia: "1.045", image: "/Projetos/vilacizino.jpg" },
-  { id: 8, num: "08", title: "Posto Flecha", city: "Itamaraju", state: "BA", kwp: "140,14", geracao: "16.625", modulos: "308", economia: "13.466", image: "/Projetos/postoflecha.jpg" },
-  { id: 9, num: "09", title: "Rally Pneus", city: "Linhares", state: "ES", kwp: "105,60", geracao: "12.618", modulos: "207", economia: "10.220", image: "/Projetos/rallypenus.jpg" },
-  { id: 10, num: "10", title: "Frigorífico Montanha", city: "Montanha", state: "ES", kwp: "141,90", geracao: "17.000", modulos: "258", economia: "13.700", image: "/Projetos/frigorificomontanha.jpg" },
+  { id: 1, num: "01", title: "Alcides Guisolfi", city: "São Mateus", state: "ES", kwp: "59,84", geracao: "7.230", modulos: "146", economia: "5.277", image: "/Portfolio/img/Projetos/alcidesguisolfi.jpg" },
+  { id: 2, num: "02", title: "Escola Master", city: "São Mateus", state: "ES", kwp: "139,00", geracao: "17.000", modulos: "403", economia: "13.770", image: "/Portfolio/img/Projetos/escolamaster.jpg" },
+  { id: 3, num: "03", title: "Proteinorte", city: "Linhares", state: "ES", kwp: "399,84", geracao: "47.980", modulos: "784", economia: "35.000", image: "/Portfolio/img/Projetos/proteinorte.jpg" },
+  { id: 4, num: "04", title: "Renato César Pimenta Maia", city: "Nova Venécia", state: "ES", kwp: "41,31", geracao: "4.900", modulos: "81", economia: "3.577", image: "/Portfolio/img/Projetos/renatocesar.jpg" },
+  { id: 5, num: "05", title: "Hotel Ibis Styles", city: "São Mateus", state: "ES", kwp: "140,80", geracao: "17.230", modulos: "408", economia: "13.959", image: "/Portfolio/img/Projetos/hotelibis.jpg" },
+  { id: 6, num: "06", title: "Brasigran", city: "Serra", state: "ES", kwp: "466,56", geracao: "55.987", modulos: "1.296", economia: "31.700", image: "/Portfolio/img/Projetos/brasigran.jpg" },
+  { id: 7, num: "07", title: "Vila Cizinho", city: "Conceição da Barra", state: "ES", kwp: "10,20", geracao: "1.258", modulos: "20", economia: "1.045", image: "/Portfolio/img/Projetos/vilacizino.jpg" },
+  { id: 8, num: "08", title: "Posto Flecha", city: "Itamaraju", state: "BA", kwp: "140,14", geracao: "16.625", modulos: "308", economia: "13.466", image: "/Portfolio/img/Projetos/postoflecha.jpg" },
+  { id: 9, num: "09", title: "Rally Pneus", city: "Linhares", state: "ES", kwp: "105,60", geracao: "12.618", modulos: "207", economia: "10.220", image: "/Portfolio/img/Projetos/rallypenus.jpg" },
+  { id: 10, num: "10", title: "Frigorífico Montanha", city: "Montanha", state: "ES", kwp: "141,90", geracao: "17.000", modulos: "258", economia: "13.700", image: "/Portfolio/img/Projetos/frigorificomontanha.jpg" },
 ];
 
 export default function ProjectsCarousel() {
@@ -46,7 +46,12 @@ export default function ProjectsCarousel() {
     if (!el) return;
     const cardWidth = el.firstElementChild?.clientWidth ?? 0;
     const gap = 24;
-    const idx = Math.round(el.scrollLeft / (cardWidth + gap));
+    // Quando a track chega na borda direita, sempre reportar o último projeto —
+    // caso contrário o índice trava no primeiro card visível à esquerda (ex.: 08/10).
+    const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 2;
+    const idx = atEnd
+      ? PROJECTS.length - 1
+      : Math.round(el.scrollLeft / (cardWidth + gap));
     setActiveIndex(Math.min(Math.max(idx, 0), PROJECTS.length - 1));
   };
 
@@ -150,12 +155,23 @@ export default function ProjectsCarousel() {
             <button
               onClick={() => scrollByDir(-1)}
               aria-label="Anterior"
-              className="flex items-center justify-center transition-all duration-300 hover:bg-[#141410] hover:text-white"
+              className="flex items-center justify-center transition-all duration-300"
               style={{
                 width: 48,
                 height: 48,
                 border: "2px solid #141410",
                 color: "#141410",
+                background: "transparent",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "#00529B";
+                e.currentTarget.style.borderColor = "#00529B";
+                e.currentTarget.style.color = "#fff";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.borderColor = "#141410";
+                e.currentTarget.style.color = "#141410";
               }}
             >
               <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4">
@@ -165,12 +181,23 @@ export default function ProjectsCarousel() {
             <button
               onClick={() => scrollByDir(1)}
               aria-label="Próximo"
-              className="flex items-center justify-center transition-all duration-300 hover:bg-[#141410] hover:text-white"
+              className="flex items-center justify-center transition-all duration-300"
               style={{
                 width: 48,
                 height: 48,
                 border: "2px solid #141410",
                 color: "#141410",
+                background: "transparent",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "#00529B";
+                e.currentTarget.style.borderColor = "#00529B";
+                e.currentTarget.style.color = "#fff";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.borderColor = "#141410";
+                e.currentTarget.style.color = "#141410";
               }}
             >
               <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4">
@@ -262,7 +289,7 @@ export default function ProjectsCarousel() {
                 style={{ borderTop: "2px solid #141410", gap: "0 24px" }}
               >
                 <Stat label="Potência" value={p.kwp} unit="kWp" />
-                <Stat label="Geração" value={p.geracao} unit="kWh" />
+                <Stat label="Geração" value={p.geracao} unit="kWh" accent />
                 <Stat label="Módulos" value={p.modulos} unit="" />
                 <Stat label="Economia/mês" value={`R$ ${p.economia}`} unit="" highlight />
               </div>
@@ -313,11 +340,13 @@ function Stat({
   value,
   unit,
   highlight,
+  accent,
 }: {
   label: string;
   value: string;
   unit: string;
   highlight?: boolean;
+  accent?: boolean;
 }) {
   return (
     <div className="flex-1 min-w-[calc(50%-12px)] mb-3">
@@ -339,7 +368,7 @@ function Stat({
           fontFamily: "var(--font-hanken, sans-serif)",
           fontWeight: 900,
           fontSize: "1.5rem",
-          color: highlight ? "#00529B" : "#141410",
+          color: highlight ? "#00529B" : accent ? "#68AF25" : "#141410",
           letterSpacing: "-0.03em",
           lineHeight: 1,
         }}
