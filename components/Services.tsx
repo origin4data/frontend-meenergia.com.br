@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { FadeIn } from "@/components/ui/FadeIn";
+import { Button } from "@/components/ui/Button";
 
 /* ────────────────────────────────────────────────────────────
    DATA
@@ -78,38 +78,6 @@ const monitoringFeatures = [
    FADE IN HOOK
    ──────────────────────────────────────────────────────────── */
 
-function useFadeIn() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold: 0.10 },
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-  return { ref, visible };
-}
-
-function FadeIn({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const { ref, visible } = useFadeIn();
-  return (
-    <div
-      ref={ref}
-      className={className}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(20px)",
-        transition: `opacity 0.5s cubic-bezier(0.16,1,0.3,1) ${delay}s, transform 0.5s cubic-bezier(0.16,1,0.3,1) ${delay}s`,
-      }}
-    >
-      {children}
-    </div>
-  );
-}
 
 /* ────────────────────────────────────────────────────────────
    COMPONENT
@@ -455,22 +423,15 @@ export default function Services() {
 
               <div className="lg:col-span-4 flex lg:justify-end">
                 <FadeIn delay={0.15}>
-                  <Link
+                  <Button
+                    as="link"
                     href="/orcamento"
-                    className="inline-flex items-center gap-3 px-8 py-4 text-sm rounded-full transition-all duration-300 hover:-translate-y-0.5 group"
-                    style={{
-                      background: "#fff",
-                      color: "#00529B",
-                      fontFamily: "var(--font-hanken, sans-serif)",
-                      fontWeight: 800,
-                      letterSpacing: "0.1em",
-                      textTransform: "uppercase",
-                      boxShadow: "0 12px 32px rgba(10,31,56,0.30)",
-                    }}
+                    variant="outline-light"
+                    size="lg"
+                    iconRight={<ArrowRight size={15} strokeWidth={2.5} />}
                   >
                     Iniciar simulação
-                    <ArrowRight size={15} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-1" />
-                  </Link>
+                  </Button>
                 </FadeIn>
               </div>
             </div>
