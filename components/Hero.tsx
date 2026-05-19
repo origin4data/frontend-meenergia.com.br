@@ -1,32 +1,26 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import SimulationModal from "./SimulationModal";
 
 const cards = [
   {
-    image: "/card/sol-pilha-verde.png",
+    image: "/Home/img/card/sol-pilha-verde.png",
     text: "Economize em até 95% na sua conta de energia.",
   },
   {
-    image: "/card/tomada.card.png",
+    image: "/Home/img/card/tomada.card.png",
     text: "Tenha liberdade e independência energética.",
   },
   {
-    image: "/card/casa-planta-verde.png",
+    image: "/Home/img/card/casa-planta-verde.png",
     text: "Valorize seu imóvel, tornando-o sustentável.",
   },
   {
-    image: "/card/painel-solar-verde.png",
+    image: "/Home/img/card/painel-solar-verde.png",
     text: "Tecnologia WEG com até 25 anos de garantia.",
   },
 ];
 
 export default function Hero() {
-  const [modalOpen, setModalOpen] = useState(false);
-
   return (
     <section
       id="home"
@@ -36,7 +30,7 @@ export default function Hero() {
       {/* ── Video ── */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
-        src="/mevideo.mp4"
+        src="/Home/img/mevideo.mp4"
         autoPlay
         muted
         loop
@@ -65,7 +59,7 @@ export default function Hero() {
                 lineHeight: 1.05,
                 letterSpacing: "-0.03em",
                 color: "#ffffff",
-                fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
+                fontSize: "clamp(2.2rem, 5vw, 4.5rem)",
               }}
             >
               Que tal gerar sua
@@ -76,7 +70,7 @@ export default function Hero() {
                 fontWeight: 800,
                 lineHeight: 1.05,
                 letterSpacing: "-0.03em",
-                fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
+                fontSize: "clamp(2.2rem, 5vw, 4.5rem)",
                 background: "linear-gradient(135deg, #68AF25 0%, #A8D84E 60%, #68AF25 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
@@ -108,8 +102,8 @@ export default function Hero() {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center gap-3 pt-1">
-            <button
-              onClick={() => setModalOpen(true)}
+            <Link
+              href="/orcamento"
               className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
               style={{
                 background: "linear-gradient(135deg, #0066BD, #2E8DD6)",
@@ -123,7 +117,7 @@ export default function Hero() {
               <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4">
                 <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </button>
+            </Link>
             <Link
               href="#sobre"
               className="inline-flex items-center gap-2 text-sm font-medium transition-all duration-200 hover:opacity-100 px-4 py-3.5"
@@ -139,7 +133,7 @@ export default function Hero() {
       </div>
 
       {/* ── Cards ── */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 lg:px-10 pb-14">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 lg:px-10 pb-14 lg:pb-24 laptop:pb-32">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {cards.map((card, i) => (
             <div
@@ -171,7 +165,6 @@ export default function Hero() {
           ))}
         </div>
       </div>
-      <SimulationModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 }
