@@ -35,6 +35,18 @@ function formatPhone(value: string) {
   return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
 }
 
+// Aceita só dígitos (máximo 9) e devolve string formatada em BRL sem decimais.
+// Ex.: "1500" → "R$ 1.500"
+function formatBRLInput(value: string) {
+  const digits = value.replace(/\D/g, "").slice(0, 9);
+  if (digits.length === 0) return "";
+  return Number(digits).toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    maximumFractionDigits: 0,
+  });
+}
+
 export default function OrcamentoPage() {
   const [monthlyBill, setMonthlyBill] = useState("");
   const [unitType, setUnitType] = useState("RES");
@@ -251,12 +263,12 @@ export default function OrcamentoPage() {
                   <TextField
                     id="bill"
                     label="Conta de luz mensal (R$)"
-                    type="number"
+                    type="text"
                     inputMode="numeric"
-                    min={0}
-                    placeholder="350"
-                    value={monthlyBill}
-                    onChange={(e) => setMonthlyBill(e.target.value)}
+                    maxLength={15}
+                    placeholder="R$ 350"
+                    value={formatBRLInput(monthlyBill)}
+                    onChange={(e) => setMonthlyBill(e.target.value.replace(/\D/g, "").slice(0, 9))}
                     autoFocus
                   />
 
